@@ -187,9 +187,10 @@
         }
         .dev img {
             height: 32px;
-            width: 32px;
+            width: auto;
             object-fit: contain;
             background: #fff;
+            border-radius: 4px;
         }
         .dev:hover {
             background: #ffb700;
@@ -257,6 +258,7 @@
             transform: scale(0.5);
             opacity: 0;
             transition: all 0.25s cubic-bezier(.68,-0.55,.27,1.55);
+            position: relative;
         }
         .subscribe-popup-bg.active .subscribe-popup {
             transform: scale(1);
@@ -323,8 +325,72 @@
             margin-top: 1em;
             font-size: 1.1em;
         }
-        @media (max-width: 700px) {
-            .subscribe-popup { width: 92vw; padding: 1.2em 0.2em; }
+
+        /* Consult Popup */
+        .consult-popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #fff;
+            color: #1f3674;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(11,22,65,0.15);
+            padding: 1.2em 1.5em 1em 1.5em;
+            z-index: 1500;
+            min-width: 230px;
+            max-width: 95vw;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            font-size: 1.1em;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .consult-popup .consult-title {
+            font-weight: 700;
+            color: #ffb700;
+            margin-bottom: .3em;
+            font-size: 1.15em;
+        }
+        .consult-popup .consult-text {
+            margin-bottom: 1em;
+            color: #1f3674;
+        }
+        .consult-popup .consult-btn {
+            display: inline-block;
+            background: #25d366;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.5em 1.2em;
+            font-weight: 700;
+            font-size: 1.03em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .consult-popup .consult-btn:hover {
+            background: #128c7e;
+        }
+        @media(max-width: 700px) {
+            .container {
+                padding: 1em;
+            }
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+            .dev-list {
+                gap: 8px;
+                flex-direction: column;
+            }
+            .instagram-feeds {
+                flex-direction: column;
+                gap: 1em;
+            }
+            .consult-popup {
+                right: 10px;
+                bottom: 10px;
+                padding: 0.8em 0.7em;
+            }
         }
     </style>
     <script>
@@ -341,7 +407,8 @@
             "Ellington": "https://ellingtongroup.com/",
             "MAG": "https://mag.global/",
             "Azizi": "https://azizidevelopments.com/",
-            "Dubai Properties": "https://www.dp.ae/"
+            "Dubai Properties": "https://www.dp.ae/",
+            "BNW": "#"
         };
         window.onload = function() {
             document.querySelectorAll('.dev').forEach(dev => {
@@ -350,8 +417,6 @@
                     const name = dev.getAttribute("data-name");
                     if(developerLinks[name]) {
                         window.open(developerLinks[name], '_blank', 'noopener');
-                        // keep popup open
-                        document.querySelector('.subscribe-popup-bg').classList.add('active');
                     }
                 });
             });
@@ -368,14 +433,32 @@
                 }
             });
 
-            // Subscribe form
+            // Subscribe form with SheetDB
             document.getElementById('subscribe-form').onsubmit = function(e) {
                 e.preventDefault();
-                document.getElementById('subscribe-success').innerText = "Thank you for subscribing! You'll now get first access to all discounts.";
-                setTimeout(function() {
-                    document.querySelector('.subscribe-popup-bg').classList.remove('active');
-                }, 2000);
-                this.reset();
+                fetch('https://sheetdb.io/api/v1/s2ug9xoasbjpn', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        data: {
+                            name: document.getElementById('sub-name').value,
+                            email: document.getElementById('sub-email').value,
+                            number: document.getElementById('sub-number').value
+                        }
+                    })
+                })
+                .then(res => res.json())
+                .then(() => {
+                    document.getElementById('subscribe-success').innerText = "Thank you for subscribing! You'll now get first access to all discounts.";
+                    setTimeout(function() {
+                        document.querySelector('.subscribe-popup-bg').classList.remove('active');
+                        document.querySelector('.consult-popup').style.display = 'flex';
+                    }, 2000);
+                    document.getElementById('subscribe-form').reset();
+                })
+                .catch(() => {
+                    document.getElementById('subscribe-success').innerText = "There was an error. Please try again.";
+                });
             };
         };
     </script>
@@ -517,20 +600,24 @@
             <h3>Top Dubai Developers (Click to visit official site)</h3>
             <div class="dev-list">
                 <div class="dev" data-name="Emaar">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Emaar.svg" alt="Emaar Logo">
+                    <img src="![image3](image3)" alt="Emaar Logo">
                     Emaar
                 </div>
                 <div class="dev" data-name="Nakheel">
-                    <img src="https://www.nakheel.com/assets/images/logo.svg" alt="Nakheel Logo">
+                    <img src="![image4](image4)" alt="Nakheel Logo">
                     Nakheel
                 </div>
+                <div class="dev" data-name="Meraas">
+                    <img src="![image5](image5)" alt="Meraas Logo">
+                    Meraas
+                </div>
                 <div class="dev" data-name="Sobha">
-                    <img src="https://www.sobha.com/wp-content/themes/sobha/assets/images/logo.svg" alt="Sobha Logo">
+                    <img src="![image6](image6)" alt="Sobha Logo">
                     Sobha
                 </div>
-                <div class="dev" data-name="Meraas">
-                    <img src="https://www.meraas.com/media/1154/meraas-logo.svg" alt="Meraas Logo">
-                    Meraas
+                <div class="dev" data-name="BNW">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/No_image_available.png" alt="BNW Logo">
+                    BNW
                 </div>
                 <div class="dev" data-name="Danube">
                     <img src="https://danubeproperties.com/sites/default/files/Danube%20Properties%20Logo.png" alt="Danube Logo">
@@ -604,6 +691,14 @@
             <button type="submit">Subscribe Now</button>
             <div class="subscribe-success" id="subscribe-success"></div>
         </form>
+    </div>
+    <!-- Consult popup -->
+    <div class="consult-popup" style="display:flex;">
+        <span class="consult-title"><i class="fab fa-whatsapp"></i> Free Consultation</span>
+        <div class="consult-text">Want expert advice on Dubai real estate? <br>Talk directly with our property consultant!</div>
+        <a class="consult-btn" href="https://api.whatsapp.com/send/?phone=918266852055&text&type=phone_number&app_absent=0" target="_blank">
+            <i class="fab fa-whatsapp"></i> Consult on WhatsApp
+        </a>
     </div>
 </body>
 </html>
