@@ -2,114 +2,387 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Investing in Dubai Real Estate</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Find the best properties in Dubai. Contact Mohammad Hamza: +918266852055">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dubai Properties - Mohammad Hamza</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin:0; background:#f5f5f5; color:#222; }
-        header { background:#0b2341; color:#fff; padding:40px 0 30px 0; text-align:center; }
-        header h1 { margin:0; font-size:2.8em; }
-        header p { font-size:1.3em; margin-top:10px; }
-        nav { background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.06); }
-        nav ul { list-style:none; margin:0; padding:0; display:flex; justify-content:center; }
-        nav li { margin:0 18px; }
-        nav a { text-decoration:none; color:#0b2341; font-weight:bold; padding:16px 0; display:inline-block;}
-        nav a:hover { color:#0ea869; }
-        .hero { background:#eaf8f6; padding:45px 0; text-align:center; }
-        .hero h2 { font-size:2em; margin:0 0 20px 0;}
-        .hero p { font-size:1.2em; margin-bottom:20px;}
-        .hero .cta { background:#0ea869; color:#fff; padding:14px 30px; border:none; font-size:1.1em; border-radius:6px; cursor:pointer;}
-        .hero .cta:hover { background:#0b2341;}
-        .properties { max-width:1200px; margin:45px auto 0 auto; padding:0 16px;}
-        .properties h3 { font-size:1.7em; margin-bottom:28px;}
-        .property-list { display:flex; gap:30px; flex-wrap:wrap;}
-        .property-card { background:#fff; border-radius:6px; box-shadow:0 1px 10px rgba(0,0,0,0.08); flex:1 1 310px; max-width:310px; overflow:hidden; display:flex; flex-direction:column;}
-        .property-card img { width:100%; height:180px; object-fit:cover;}
-        .property-card .info { padding:16px;}
-        .property-card h4 { margin:0 0 8px 0;}
-        .property-card p { font-size:1em; margin:0 0 10px 0;}
-        .property-card .price { font-size:1.1em; color:#0ea869; font-weight:bold;}
-        .about, .contact { max-width:1200px; margin:45px auto 0 auto; padding:0 16px;}
-        .about { background:#fff; border-radius:6px; box-shadow:0 1px 10px rgba(0,0,0,0.07); padding:32px;}
-        .about h3 { margin-top:0; }
-        .contact { margin-bottom:50px;}
-        .contact-card { background:#fff; border-radius:6px; box-shadow:0 1px 10px rgba(0,0,0,0.07); padding:32px; display:flex; align-items:center; gap:30px;}
-        .contact-card img { width:98px; height:98px; border-radius:50%; object-fit:cover; background:#0ea869; }
-        .contact-details { flex:1; }
-        .contact-details h4 { margin:0 0 10px 0;}
-        .contact-details p { margin:0 0 6px 0;}
-        @media (max-width:900px) {
-            .property-list { flex-direction:column; align-items:center;}
-            .property-card { max-width:100%;}
-            .contact-card { flex-direction:column; align-items:flex-start;}
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            background: #f4f6fc;
+            color: #222;
+        }
+        header {
+            background: #0077b6;
+            color: #fff;
+            padding: 1.5em 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2em;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 2em;
+            margin-bottom: 2em;
+        }
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 100px;
+            border: 4px solid #0077b6;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+        }
+        .profile-details h2 {
+            margin: 0 0 .4em 0;
+            font-size: 2em;
+            color: #023e8a;
+        }
+        .profile-details p {
+            font-size: 1.1em;
+            margin: .3em 0;
+        }
+        .contact {
+            font-weight: bold;
+            font-size: 1.05em;
+            color: #0077b6;
+        }
+        .socials {
+            margin-top: 1em;
+        }
+        .socials a {
+            margin-right: 18px;
+            color: #0077b6;
+            font-size: 2em;
+            transition: color 0.2s;
+        }
+        .socials a:hover {
+            color: #00b4d8;
+        }
+        .benefits {
+            margin: 2em 0;
+            background: #fff;
+            border-radius: 12px;
+            padding: 2em;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .benefits h3 {
+            color: #023e8a;
+            font-size: 1.3em;
+            margin-bottom: 1em;
+        }
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+        .benefits-list li {
+            margin-bottom: 1em;
+            font-size: 1.08em;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .benefits-list li i {
+            color: #009688;
+            margin-top: 2px;
+        }
+        .locations {
+            margin-top: 2em;
+        }
+        .locations h3 {
+            color: #023e8a;
+            font-size: 1.3em;
+            margin-bottom: 1em;
+        }
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2em;
+        }
+        .location-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: transform 0.15s;
+        }
+        .location-card:hover {
+            transform: translateY(-4px) scale(1.03);
+        }
+        .location-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        .location-card .caption {
+            padding: .7em 1em;
+            font-weight: 600;
+            color: #333;
+        }
+        .developers {
+            margin-top: 2.5em;
+        }
+        .developers h3 {
+            color: #023e8a;
+            font-size: 1.3em;
+            margin-bottom: 1em;
+        }
+        .dev-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .dev {
+            background: #e0f5ff;
+            padding: .8em 1.2em;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #0077b6;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            margin-bottom: 8px;
+        }
+        .compare-widget {
+            margin: 2em 0;
+            background: #fff;
+            border-radius: 12px;
+            padding: 2em;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .widget-title {
+            color: #023e8a;
+            font-size: 1.15em;
+            margin-bottom: 0.7em;
+        }
+        .widget-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1em;
+        }
+        .widget-table th, .widget-table td {
+            border: 1px solid #e3e3e3;
+            padding: .9em;
+            text-align: left;
+        }
+        .widget-table th {
+            background: #e0f5ff;
+        }
+        .widget-table td.positive {
+            color: #009688;
+            font-weight: bold;
+        }
+        .instagram-widget {
+            margin: 2em 0;
+        }
+        .instagram-widget h3 {
+            color: #023e8a;
+            font-size: 1.3em;
+            margin-bottom: 1em;
+        }
+        .instagram-feeds {
+            display: flex;
+            gap: 2em;
+            flex-wrap: wrap;
+        }
+        .insta-embed {
+            min-width: 320px;
+            max-width: 400px;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            padding: 1em;
+        }
+        @media(max-width: 700px) {
+            .profile {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .container {
+                padding: 1em;
+            }
+            .instagram-feeds {
+                flex-direction: column;
+                gap: 1em;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Investing in Dubai Real Estate</h1>
-        <p>Premium Property Listings. Trusted Agent. Expert Advice.</p>
+        <h1>Dubai Properties - Mohammad Hamza</h1>
+        <p>Your Gateway to Luxury Living in Dubai</p>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#properties">Properties</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <section class="hero">
-        <h2>Find Your Dream Property in Dubai</h2>
-        <p>Explore top-rated apartments, villas, and commercial spaces. Get expert guidance from Mohammad Hamza.<br>
-        Call <strong>+918266852055</strong> for a free consultation!</p>
-        <button class="cta" onclick="window.location.href='#contact'">Contact Agent</button>
-    </section>
-    <section class="properties" id="properties">
-        <h3>Featured Properties</h3>
-        <div class="property-list">
-            <div class="property-card">
-                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Luxury Apartment Dubai">
-                <div class="info">
-                    <h4>Luxury Apartment - Downtown</h4>
-                    <p>2 Beds • 2 Baths • 1,200 sqft<br>Modern interior, stunning city views.</p>
-                    <div class="price">AED 2,500,000</div>
-                </div>
-            </div>
-            <div class="property-card">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Villa Dubai Hills">
-                <div class="info">
-                    <h4>Spacious Villa - Dubai Hills</h4>
-                    <p>4 Beds • 5 Baths • 4,800 sqft<br>Private garden, luxury finishes.</p>
-                    <div class="price">AED 6,900,000</div>
-                </div>
-            </div>
-            <div class="property-card">
-                <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=600&q=80" alt="Office Space JLT">
-                <div class="info">
-                    <h4>Office Space - JLT</h4>
-                    <p>1,500 sqft • High Floor<br>Ideal for startups and professionals.</p>
-                    <div class="price">AED 850,000</div>
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile">
+            <img src="![image1](image1)" alt="Mohammad Hamza" class="profile-img">
+            <div class="profile-details">
+                <h2>Mohammad Hamza</h2>
+                <p class="contact">Contact: +918266852055</p>
+                <p>Real Estate Professional - Dubai Properties | Expert in Luxury & Investment Homes</p>
+                <div class="socials">
+                    <a href="https://www.instagram.com/mohammadhamza_dxb/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61552948559704" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/mohammad-hamza-ansari/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://wa.me/918266852055" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="about" id="about">
-        <h3>About Our Agency</h3>
-        <p>
-            With years of experience in Dubai's fast-growing property market, we offer personalized guidance and access to exclusive listings. Whether buying, selling, or renting, we help you make smart investments and secure the best deals. Our commitment is to transparency, professionalism, and client satisfaction.
-        </p>
-    </section>
-    <section class="contact" id="contact">
-        <h3>Contact Mohammad Hamza</h3>
-        <div class="contact-card">
-            <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Mohammad Hamza">
-            <div class="contact-details">
-                <h4>Mohammad Hamza</h4>
-                <p><strong>Phone:</strong> <a href="tel:+918266852055">+918266852055</a></p>
-                <p><strong>Email:</strong> <a href="mailto:info@investingindubairealestate.com">info@investingindubairealestate.com</a></p>
-                <p><strong>Languages:</strong> English, Hindi, Arabic</p>
-                <p><strong>Location:</strong> Dubai, UAE</p>
+
+        <!-- Benefits Section -->
+        <div class="benefits">
+            <h3>Benefits of Investing in Dubai</h3>
+            <ul class="benefits-list">
+                <li><i class="fas fa-money-bill-trend-up"></i> High Return on Investment: Dubai properties offer strong rental yields and capital appreciation.</li>
+                <li><i class="fas fa-coins"></i> Cash Flow Opportunities: Invest in prime locations to enjoy consistent rental income.</li>
+                <li><i class="fas fa-gem"></i> Luxury Lifestyle: World-class amenities, beaches, shopping, and entertainment make Dubai a global hotspot.</li>
+                <li><i class="fas fa-passport"></i> Golden Visa: Qualifying investments can secure long-term residency for you and your family.</li>
+                <li><i class="fas fa-globe"></i> Safe & Global City: Dubai’s secure environment and business-friendly policies attract investors worldwide.</li>
+                <li><i class="fas fa-building"></i> Modern Infrastructure: Enjoy futuristic architecture and efficient urban planning.</li>
+            </ul>
+        </div>
+
+        <!-- Compare Widget -->
+        <div class="compare-widget">
+            <div class="widget-title">Compare Countries – Why Dubai is the Best Choice</div>
+            <table class="widget-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Dubai</th>
+                        <th>Other Countries</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rental Yield</td>
+                        <td class="positive">Up to 8-12%</td>
+                        <td>3-5%</td>
+                    </tr>
+                    <tr>
+                        <td>Taxation</td>
+                        <td class="positive">No Property Tax</td>
+                        <td>Property Tax Applicable</td>
+                    </tr>
+                    <tr>
+                        <td>Golden Visa</td>
+                        <td class="positive">Available</td>
+                        <td>Limited/Not Available</td>
+                    </tr>
+                    <tr>
+                        <td>Lifestyle</td>
+                        <td class="positive">Luxurious & Modern</td>
+                        <td>Varies</td>
+                    </tr>
+                    <tr>
+                        <td>Safety</td>
+                        <td class="positive">Top Global Ranking</td>
+                        <td>Varies</td>
+                    </tr>
+                    <tr>
+                        <td>Investment Process</td>
+                        <td class="positive">Transparent & Fast</td>
+                        <td>Complex</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Dubai always stands out for positive investment, lifestyle, and growth opportunities.</strong></p>
+        </div>
+
+        <!-- Dubai Locations Section -->
+        <div class="locations">
+            <h3>Dubai's Iconic Destinations</h3>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <a href="https://www.google.com/maps?q=Dubai+Downtown" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Dubai Downtown">
+                    </a>
+                    <div class="caption">Dubai Downtown</div>
+                </div>
+                <div class="location-card">
+                    <a href="https://www.google.com/maps?q=La+Mer+Dubai" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1533106418989-88406c7b2492?auto=format&fit=crop&w=600&q=80" alt="La Mer">
+                    </a>
+                    <div class="caption">La Mer</div>
+                </div>
+                <div class="location-card">
+                    <a href="https://www.google.com/maps?q=Burj+Khalifa" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Burj Khalifa">
+                    </a>
+                    <div class="caption">Burj Khalifa</div>
+                </div>
+                <div class="location-card">
+                    <a href="https://www.google.com/maps?q=Burj+Al+Arab" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1509343252458-2d7b2b5f8d05?auto=format&fit=crop&w=600&q=80" alt="Burj Al Arab">
+                    </a>
+                    <div class="caption">Burj Al Arab</div>
+                </div>
+                <div class="location-card">
+                    <a href="https://www.google.com/maps?q=Palm+Jumeirah" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1468354153267-5375e0c6a4f6?auto=format&fit=crop&w=600&q=80" alt="Palm Jumeirah">
+                    </a>
+                    <div class="caption">Palm Jumeirah</div>
+                </div>
             </div>
         </div>
-    </section>
+
+        <!-- Developers Section -->
+        <div class="developers">
+            <h3>Top Dubai Developers</h3>
+            <div class="dev-list">
+                <div class="dev">Emaar</div>
+                <div class="dev">Nakheel</div>
+                <div class="dev">Sobha</div>
+                <div class="dev">Meraas</div>
+                <div class="dev">Danube</div>
+                <div class="dev">Samana</div>
+                <div class="dev">Damac</div>
+                <div class="dev">Select Group</div>
+                <div class="dev">Ellington</div>
+                <div class="dev">MAG</div>
+                <div class="dev">Azizi</div>
+                <div class="dev">Dubai Properties</div>
+            </div>
+        </div>
+
+        <!-- Instagram Widget Section -->
+        <div class="instagram-widget">
+            <h3>Dubai Official Instagram Updates</h3>
+            <div class="instagram-feeds">
+                <!-- Dubai Official Instagram -->
+                <div class="insta-embed">
+                    <iframe src="https://snapwidget.com/embed/1053112" title="Dubai Official Instagram" style="border:none;overflow:hidden;width:100%;height:450px;" allowtransparency="true"></iframe>
+                    <p style="margin: .7em 0 0 .2em;">
+                        <a href="https://www.instagram.com/dubai/" target="_blank" style="color:#0077b6;text-decoration:none; font-weight:bold;">
+                            @dubai (Dubai Official)
+                        </a>
+                    </p>
+                </div>
+                <!-- Faza Official Instagram -->
+                <div class="insta-embed">
+                    <iframe src="https://snapwidget.com/embed/1053113" title="Faza Instagram" style="border:none;overflow:hidden;width:100%;height:450px;" allowtransparency="true"></iframe>
+                    <p style="margin: .7em 0 0 .2em;">
+                        <a href="https://www.instagram.com/faz3/" target="_blank" style="color:#0077b6;text-decoration:none; font-weight:bold;">
+                            @faz3 (Faza Official)
+                        </a>
+                    </p>
+                </div>
+                <!-- Dubai Tourism Official Instagram -->
+                <div class="insta-embed">
+                    <iframe src="https://snapwidget.com/embed/1053114" title="Dubai Tourism Instagram" style="border:none;overflow:hidden;width:100%;height:450px;" allowtransparency="true"></iframe>
+                    <p style="margin: .7em 0 0 .2em;">
+                        <a href="https://www.instagram.com/dubaitourism/" target="_blank" style="color:#0077b6;text-decoration:none; font-weight:bold;">
+                            @dubaitourism (Dubai Tourism)
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
