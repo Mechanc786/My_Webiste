@@ -1,11 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Investing in Dubai Real Estate</title>
+    <meta charset="UTF-8">
+    <title>Investing in Dubai Real Estate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Find the best properties in Dubai. Contact Mohammad Hamza: +918266852055">
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin:0; background:#f5f5f5; color:#222; }
+        header { background:#0b2341; color:#fff; padding:40px 0 30px 0; text-align:center; }
+        header h1 { margin:0; font-size:2.8em; }
+        header p { font-size:1.3em; margin-top:10px; }
+        nav { background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.06); }
+        nav ul { list-style:none; margin:0; padding:0; display:flex; justify-content:center; }
+        nav li { margin:0 18px; }
+        nav a { text-decoration:none; color:#0b2341; font-weight:bold; padding:16px 0; display:inline-block;}
+        nav a:hover { color:#0ea869; }
+        .hero { background:#eaf8f6; padding:45px 0; text-align:center; }
+        .hero h2 { font-size:2em; margin:0 0 20px 0;}
+        .hero p { font-size:1.2em; margin-bottom:20px;}
+        .hero .cta { background:#0ea869; color:#fff; padding:14px 30px; border:none; font-size:1.1em; border-radius:6px; cursor:pointer;}
+        .hero .cta:hover { background:#0b2341;}
+        .properties { max-width:1200px; margin:45px auto 0 auto; padding:0 16px;}
+        .properties h3 { font-size:1.7em; margin-bottom:28px;}
+        .property-list { display:flex; gap:30px; flex-wrap:wrap;}
+        .property-card { background:#fff; border-radius:6px; box-shadow:0 1px 10px rgba(0,0,0,0.08); flex:1 1 310px; max-width:310px; overflow:hidden; display:flex; flex-direction:column;}
+        .property-card img { width:100%; height:180px; object-fit:cover;}
+        .property-card .info { padding:16px;}
+        .property-card h4 { margin:0 0 8px 0;}
+        .property-card p { font-size:1em; margin:0 0 10px 0;}
+        .property-card .price { font-size:1.1em; color:#0ea869; font-weight:bold;}
+        .about, .contact { max-width:1200px; margin:45px auto 0 auto; padding:0 16px;}
+        .about { background:#fff; border-radius:6px; box-shadow:0 1px 10px rgba(0,0,0,0.07); padding:32px;}
+        .about h3 { margin-top:0; }
+        .contact { margin-bottom:50px;}
+        .contact-card { background:#fff; border-radius:6px; box-shadow:0 1px 10px rgba(0,0,0,0.07); padding:32px; display:flex; align-items:center; gap:30px;}
+        .contact-card img { width:98px; height:98px; border-radius:50%; object-fit:cover; background:#0ea869; }
+        .contact-details { flex:1; }
+        .contact-details h4 { margin:0 0 10px 0;}
+        .contact-details p { margin:0 0 6px 0;}
+        @media (max-width:900px) {
+            .property-list { flex-direction:column; align-items:center;}
+            .property-card { max-width:100%;}
+            .contact-card { flex-direction:column; align-items:flex-start;}
+        }
+    </style>
 </head>
 <body>
-  <h1>Welcome to Investing in Dubai Real Estate</h1>
-  <p>This website will share tips and resources for investing in Dubai real estate.</p>
+    <header>
+        <h1>Investing in Dubai Real Estate</h1>
+        <p>Premium Property Listings. Trusted Agent. Expert Advice.</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#properties">Properties</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="hero">
+        <h2>Find Your Dream Property in Dubai</h2>
+        <p>Explore top-rated apartments, villas, and commercial spaces. Get expert guidance from Mohammad Hamza.<br>
+        Call <strong>+918266852055</strong> for a free consultation!</p>
+        <button class="cta" onclick="window.location.href='#contact'">Contact Agent</button>
+    </section>
+    <section class="properties" id="properties">
+        <h3>Featured Properties</h3>
+        <div class="property-list">
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Luxury Apartment Dubai">
+                <div class="info">
+                    <h4>Luxury Apartment - Downtown</h4>
+                    <p>2 Beds • 2 Baths • 1,200 sqft<br>Modern interior, stunning city views.</p>
+                    <div class="price">AED 2,500,000</div>
+                </div>
+            </div>
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Villa Dubai Hills">
+                <div class="info">
+                    <h4>Spacious Villa - Dubai Hills</h4>
+                    <p>4 Beds • 5 Baths • 4,800 sqft<br>Private garden, luxury finishes.</p>
+                    <div class="price">AED 6,900,000</div>
+                </div>
+            </div>
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=600&q=80" alt="Office Space JLT">
+                <div class="info">
+                    <h4>Office Space - JLT</h4>
+                    <p>1,500 sqft • High Floor<br>Ideal for startups and professionals.</p>
+                    <div class="price">AED 850,000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <h3>About Our Agency</h3>
+        <p>
+            With years of experience in Dubai's fast-growing property market, we offer personalized guidance and access to exclusive listings. Whether buying, selling, or renting, we help you make smart investments and secure the best deals. Our commitment is to transparency, professionalism, and client satisfaction.
+        </p>
+    </section>
+    <section class="contact" id="contact">
+        <h3>Contact Mohammad Hamza</h3>
+        <div class="contact-card">
+            <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Mohammad Hamza">
+            <div class="contact-details">
+                <h4>Mohammad Hamza</h4>
+                <p><strong>Phone:</strong> <a href="tel:+918266852055">+918266852055</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@investingindubairealestate.com">info@investingindubairealestate.com</a></p>
+                <p><strong>Languages:</strong> English, Hindi, Arabic</p>
+                <p><strong>Location:</strong> Dubai, UAE</p>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
