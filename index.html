@@ -10,19 +10,50 @@
         body {
             font-family: 'Montserrat', Arial, sans-serif;
             margin: 0;
-            background: #f4f6fc;
-            color: #222;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #0b1641 0%, #1f3674 50%, #f7f8fa 100%);
+            color: #fff;
+            position: relative;
+        }
+        .bg-img {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -2;
+            object-fit: cover;
+            opacity: 0.5;
+        }
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(180deg, #0b1641cc 0%, #1f3674cc 60%, #f7f8fa88 100%);
+            z-index: -1;
         }
         header {
-            background: #0077b6;
-            color: #fff;
-            padding: 1.5em 0;
             text-align: center;
+            padding: 2.2em 0 1em 0;
+            background: transparent;
+        }
+        header h1 {
+            font-size: 2.7em;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.2em;
+            letter-spacing: 2px;
+        }
+        header p {
+            font-size: 1.3em;
+            font-weight: 400;
+            color: #c6d0ec;
+            margin-top: 0;
+            margin-bottom: 0.7em;
         }
         .container {
             max-width: 1200px;
-            margin: auto;
-            padding: 2em;
+            margin: 0 auto;
+            padding: 2em 1em;
+            background: rgba(10, 22, 65, 0.75);
+            border-radius: 18px;
+            box-shadow: 0 6px 32px rgba(11, 22, 65, 0.09);
         }
         .profile {
             display: flex;
@@ -35,29 +66,25 @@
             height: 180px;
             object-fit: cover;
             border-radius: 100px;
-            border: 4px solid #0077b6;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+            border: 4px solid #1f3674;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
         .profile-details h2 {
             margin: 0 0 .4em 0;
             font-size: 2em;
-            color: #023e8a;
+            color: #c6d0ec;
         }
         .profile-details p {
             font-size: 1.1em;
             margin: .3em 0;
-        }
-        .contact {
-            font-weight: bold;
-            font-size: 1.05em;
-            color: #0077b6;
+            color: #dae3fa;
         }
         .socials {
             margin-top: 1em;
         }
         .socials a {
             margin-right: 18px;
-            color: #0077b6;
+            color: #fff;
             font-size: 2em;
             transition: color 0.2s;
         }
@@ -66,15 +93,17 @@
         }
         .benefits {
             margin: 2em 0;
-            background: #fff;
+            background: linear-gradient(90deg, #1f3674aa 70%, #f7f8fa33 100%);
             border-radius: 12px;
             padding: 2em;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 16px rgba(11,22,65,0.12);
+            color: #fff;
         }
         .benefits h3 {
-            color: #023e8a;
+            color: #ffb700;
             font-size: 1.3em;
             margin-bottom: 1em;
+            letter-spacing: 1px;
         }
         .benefits-list {
             list-style: none;
@@ -88,14 +117,14 @@
             gap: 10px;
         }
         .benefits-list li i {
-            color: #009688;
+            color: #ffb700;
             margin-top: 2px;
         }
         .locations {
             margin-top: 2em;
         }
         .locations h3 {
-            color: #023e8a;
+            color: #ffb700;
             font-size: 1.3em;
             margin-bottom: 1em;
         }
@@ -105,10 +134,10 @@
             gap: 1.2em;
         }
         .location-card {
-            background: #fff;
+            background: rgba(31,54,116,0.85);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 16px rgba(11,22,65,0.11);
             transition: transform 0.15s;
         }
         .location-card:hover {
@@ -123,13 +152,13 @@
         .location-card .caption {
             padding: .7em 1em;
             font-weight: 600;
-            color: #333;
+            color: #fff;
         }
         .developers {
             margin-top: 2.5em;
         }
         .developers h3 {
-            color: #023e8a;
+            color: #ffb700;
             font-size: 1.3em;
             margin-bottom: 1em;
         }
@@ -139,48 +168,25 @@
             gap: 16px;
         }
         .dev {
-            background: #e0f5ff;
+            background: #ffb700;
             padding: .8em 1.2em;
             border-radius: 8px;
             font-weight: bold;
-            color: #0077b6;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            color: #1f3674;
+            box-shadow: 0 2px 8px rgba(11,22,65,0.06);
             margin-bottom: 8px;
+            cursor: pointer;
+            transition: background 0.18s, color 0.18s;
         }
-        .compare-widget {
-            margin: 2em 0;
+        .dev:hover {
             background: #fff;
-            border-radius: 12px;
-            padding: 2em;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-        }
-        .widget-title {
-            color: #023e8a;
-            font-size: 1.15em;
-            margin-bottom: 0.7em;
-        }
-        .widget-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 1em;
-        }
-        .widget-table th, .widget-table td {
-            border: 1px solid #e3e3e3;
-            padding: .9em;
-            text-align: left;
-        }
-        .widget-table th {
-            background: #e0f5ff;
-        }
-        .widget-table td.positive {
-            color: #009688;
-            font-weight: bold;
+            color: #0b1641;
         }
         .instagram-widget {
             margin: 2em 0;
         }
         .instagram-widget h3 {
-            color: #023e8a;
+            color: #ffb700;
             font-size: 1.3em;
             margin-bottom: 1em;
         }
@@ -192,9 +198,9 @@
         .insta-embed {
             min-width: 320px;
             max-width: 400px;
-            background: #fff;
+            background: rgba(31,54,116,0.85);
             border-radius: 14px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 16px rgba(11,22,65,0.10);
             padding: 1em;
         }
         @media(max-width: 700px) {
@@ -211,11 +217,41 @@
             }
         }
     </style>
+    <script>
+        // Developer links
+        const developerLinks = {
+            "Emaar": "https://www.emaar.com/",
+            "Nakheel": "https://www.nakheel.com/",
+            "Sobha": "https://www.sobha.com/",
+            "Meraas": "https://www.meraas.com/",
+            "Danube": "https://www.danubebuilders.com/",
+            "Samana": "https://samanadevelopers.com/",
+            "Damac": "https://www.damacproperties.com/",
+            "Select Group": "https://www.select-group.ae/",
+            "Ellington": "https://ellingtongroup.com/",
+            "MAG": "https://www.magproperty.com/",
+            "Azizi": "https://azizidevelopments.com/",
+            "Dubai Properties": "https://www.dp.ae/"
+        };
+        window.onload = function() {
+            document.querySelectorAll('.dev').forEach(dev => {
+                dev.addEventListener('click', function() {
+                    const name = dev.textContent.trim();
+                    if(developerLinks[name]) {
+                        window.open(developerLinks[name], '_blank');
+                    }
+                });
+            });
+        };
+    </script>
 </head>
 <body>
+    <!-- Background Image -->
+    <img src="![image2](image2)" class="bg-img" alt="Dubai Skyline Background">
+    <div class="overlay"></div>
     <header>
-        <h1>Dubai Properties - Mohammad Hamza</h1>
-        <p>Your Gateway to Luxury Living in Dubai</p>
+        <h1>Dubai Properties</h1>
+        <p>Discover Luxury Real Estate & Wonders with Mohammad Hamza</p>
     </header>
     <div class="container">
         <!-- Profile Section -->
@@ -223,93 +259,32 @@
             <img src="![image1](image1)" alt="Mohammad Hamza" class="profile-img">
             <div class="profile-details">
                 <h2>Mohammad Hamza</h2>
-                <p class="contact">Contact: +918266852055</p>
-                <p>Real Estate Professional - Dubai Properties | Expert in Luxury & Investment Homes</p>
+                <p>Dubai Real Estate Professional | Luxury & Investments Specialist</p>
                 <div class="socials">
                     <a href="https://www.instagram.com/mohammadhamza_dxb/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.facebook.com/profile.php?id=61552948559704" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.linkedin.com/in/mohammad-hamza-ansari/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://wa.me/918266852055" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
 
         <!-- Benefits Section -->
         <div class="benefits">
-            <h3>Benefits of Investing in Dubai</h3>
+            <h3>Why Invest in Dubai?</h3>
             <ul class="benefits-list">
-                <li><i class="fas fa-money-bill-trend-up"></i> High Return on Investment: Dubai properties offer strong rental yields and capital appreciation.</li>
-                <li><i class="fas fa-coins"></i> Cash Flow Opportunities: Invest in prime locations to enjoy consistent rental income.</li>
-                <li><i class="fas fa-gem"></i> Luxury Lifestyle: World-class amenities, beaches, shopping, and entertainment make Dubai a global hotspot.</li>
-                <li><i class="fas fa-passport"></i> Golden Visa: Qualifying investments can secure long-term residency for you and your family.</li>
-                <li><i class="fas fa-globe"></i> Safe & Global City: Dubai’s secure environment and business-friendly policies attract investors worldwide.</li>
-                <li><i class="fas fa-building"></i> Modern Infrastructure: Enjoy futuristic architecture and efficient urban planning.</li>
+                <li><i class="fas fa-money-bill-trend-up"></i> High Rental Returns & Capital Appreciation</li>
+                <li><i class="fas fa-coins"></i> Strong Cash Flow Opportunities</li>
+                <li><i class="fas fa-gem"></i> Unmatched Luxury Lifestyle & Amenities</li>
+                <li><i class="fas fa-passport"></i> Golden Visa for Investors</li>
+                <li><i class="fas fa-globe"></i> Safe, Tax-Free & Global City</li>
+                <li><i class="fas fa-building"></i> Modern Infrastructure & World-Class Developments</li>
             </ul>
-        </div>
-
-        <!-- Compare Widget -->
-        <div class="compare-widget">
-            <div class="widget-title">Compare Countries – Why Dubai is the Best Choice</div>
-            <table class="widget-table">
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Dubai</th>
-                        <th>Other Countries</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Rental Yield</td>
-                        <td class="positive">Up to 8-12%</td>
-                        <td>3-5%</td>
-                    </tr>
-                    <tr>
-                        <td>Taxation</td>
-                        <td class="positive">No Property Tax</td>
-                        <td>Property Tax Applicable</td>
-                    </tr>
-                    <tr>
-                        <td>Golden Visa</td>
-                        <td class="positive">Available</td>
-                        <td>Limited/Not Available</td>
-                    </tr>
-                    <tr>
-                        <td>Lifestyle</td>
-                        <td class="positive">Luxurious & Modern</td>
-                        <td>Varies</td>
-                    </tr>
-                    <tr>
-                        <td>Safety</td>
-                        <td class="positive">Top Global Ranking</td>
-                        <td>Varies</td>
-                    </tr>
-                    <tr>
-                        <td>Investment Process</td>
-                        <td class="positive">Transparent & Fast</td>
-                        <td>Complex</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p><strong>Dubai always stands out for positive investment, lifestyle, and growth opportunities.</strong></p>
         </div>
 
         <!-- Dubai Locations Section -->
         <div class="locations">
-            <h3>Dubai's Iconic Destinations</h3>
+            <h3>Dubai Wonders</h3>
             <div class="locations-grid">
-                <div class="location-card">
-                    <a href="https://www.google.com/maps?q=Dubai+Downtown" target="_blank">
-                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Dubai Downtown">
-                    </a>
-                    <div class="caption">Dubai Downtown</div>
-                </div>
-                <div class="location-card">
-                    <a href="https://www.google.com/maps?q=La+Mer+Dubai" target="_blank">
-                        <img src="https://images.unsplash.com/photo-1533106418989-88406c7b2492?auto=format&fit=crop&w=600&q=80" alt="La Mer">
-                    </a>
-                    <div class="caption">La Mer</div>
-                </div>
                 <div class="location-card">
                     <a href="https://www.google.com/maps?q=Burj+Khalifa" target="_blank">
                         <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Burj Khalifa">
@@ -323,6 +298,18 @@
                     <div class="caption">Burj Al Arab</div>
                 </div>
                 <div class="location-card">
+                    <a href="https://www.google.com/maps?q=Dubai+Downtown" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Dubai Downtown">
+                    </a>
+                    <div class="caption">Dubai Downtown</div>
+                </div>
+                <div class="location-card">
+                    <a href="https://www.google.com/maps?q=La+Mer+Dubai" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1533106418989-88406c7b2492?auto=format&fit=crop&w=600&q=80" alt="La Mer">
+                    </a>
+                    <div class="caption">La Mer</div>
+                </div>
+                <div class="location-card">
                     <a href="https://www.google.com/maps?q=Palm+Jumeirah" target="_blank">
                         <img src="https://images.unsplash.com/photo-1468354153267-5375e0c6a4f6?auto=format&fit=crop&w=600&q=80" alt="Palm Jumeirah">
                     </a>
@@ -333,7 +320,7 @@
 
         <!-- Developers Section -->
         <div class="developers">
-            <h3>Top Dubai Developers</h3>
+            <h3>Top Dubai Developers (Click to visit site)</h3>
             <div class="dev-list">
                 <div class="dev">Emaar</div>
                 <div class="dev">Nakheel</div>
@@ -358,7 +345,7 @@
                 <div class="insta-embed">
                     <iframe src="https://snapwidget.com/embed/1053112" title="Dubai Official Instagram" style="border:none;overflow:hidden;width:100%;height:450px;" allowtransparency="true"></iframe>
                     <p style="margin: .7em 0 0 .2em;">
-                        <a href="https://www.instagram.com/dubai/" target="_blank" style="color:#0077b6;text-decoration:none; font-weight:bold;">
+                        <a href="https://www.instagram.com/dubai/" target="_blank" style="color:#ffb700;text-decoration:none; font-weight:bold;">
                             @dubai (Dubai Official)
                         </a>
                     </p>
@@ -367,17 +354,8 @@
                 <div class="insta-embed">
                     <iframe src="https://snapwidget.com/embed/1053113" title="Faza Instagram" style="border:none;overflow:hidden;width:100%;height:450px;" allowtransparency="true"></iframe>
                     <p style="margin: .7em 0 0 .2em;">
-                        <a href="https://www.instagram.com/faz3/" target="_blank" style="color:#0077b6;text-decoration:none; font-weight:bold;">
+                        <a href="https://www.instagram.com/faz3/" target="_blank" style="color:#ffb700;text-decoration:none; font-weight:bold;">
                             @faz3 (Faza Official)
-                        </a>
-                    </p>
-                </div>
-                <!-- Dubai Tourism Official Instagram -->
-                <div class="insta-embed">
-                    <iframe src="https://snapwidget.com/embed/1053114" title="Dubai Tourism Instagram" style="border:none;overflow:hidden;width:100%;height:450px;" allowtransparency="true"></iframe>
-                    <p style="margin: .7em 0 0 .2em;">
-                        <a href="https://www.instagram.com/dubaitourism/" target="_blank" style="color:#0077b6;text-decoration:none; font-weight:bold;">
-                            @dubaitourism (Dubai Tourism)
                         </a>
                     </p>
                 </div>
