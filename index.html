@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dubai Properties - Mohammad Hamza</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <title>Investing in Dubai Real Estate - Mohammad Hamza</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
             font-family: 'Montserrat', Arial, sans-serif;
             margin: 0;
             min-height: 100vh;
-            background: linear-gradient(180deg, #0b1641 0%, #1f3674 50%, #f7f8fa 100%);
+            background: linear-gradient(180deg, #0b1641 0%, #1f3674 60%, #f7f8fa 100%);
             color: #fff;
             position: relative;
+            overflow-x: hidden;
         }
         .bg-img {
             position: fixed;
@@ -34,14 +35,14 @@
             background: transparent;
         }
         header h1 {
-            font-size: 2.7em;
+            font-size: 2.5em;
             font-weight: 700;
             color: #fff;
             margin-bottom: 0.2em;
             letter-spacing: 2px;
         }
         header p {
-            font-size: 1.3em;
+            font-size: 1.2em;
             font-weight: 400;
             color: #c6d0ec;
             margin-top: 0;
@@ -54,6 +55,7 @@
             background: rgba(10, 22, 65, 0.75);
             border-radius: 18px;
             box-shadow: 0 6px 32px rgba(11, 22, 65, 0.09);
+            position: relative;
         }
         .benefits {
             margin: 2em 0;
@@ -84,6 +86,42 @@
             color: #ffb700;
             margin-top: 2px;
         }
+        .comparison-chart {
+            margin: 2em 0;
+            background: #16235b;
+            border-radius: 12px;
+            padding: 1.5em 1em;
+            box-shadow: 0 4px 16px rgba(11,22,65,0.12);
+            color: #fff;
+            overflow-x: auto;
+        }
+        .comparison-chart h3 {
+            color: #ffb700;
+            font-size: 1.2em;
+            margin-bottom: 1em;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1em;
+            font-size: 1em;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #2b388f;
+            padding: .8em;
+            text-align: left;
+        }
+        .comparison-table th {
+            background: #233176;
+            color: #ffb700;
+        }
+        .comparison-table td.positive {
+            color: #55ffb7;
+            font-weight: bold;
+        }
+        .comparison-table td {
+            color: #fff;
+        }
         .locations {
             margin-top: 2em;
         }
@@ -112,6 +150,7 @@
             height: 180px;
             object-fit: cover;
             cursor: pointer;
+            display: block;
         }
         .location-card .caption {
             padding: .7em 1em;
@@ -144,11 +183,13 @@
             align-items: center;
             gap: 12px;
             transition: background 0.18s, color 0.18s;
+            min-width: 140px;
         }
         .dev img {
             height: 32px;
             width: 32px;
             object-fit: contain;
+            background: #fff;
         }
         .dev:hover {
             background: #ffb700;
@@ -181,6 +222,7 @@
             width: 90px;
             height: 90px;
             margin-bottom: 0.5em;
+            background: #fff;
         }
         .insta-profile img {
             width: 90px; height: 90px; object-fit: cover;
@@ -194,26 +236,28 @@
             margin-top: 0.4em;
         }
         .profile-bottom {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
             display: flex;
             align-items: center;
             gap: 1.5em;
             background: rgba(31,54,116,0.88);
             border-radius: 16px;
-            padding: 1.5em;
-            margin: 2em auto 0 auto;
-            max-width: 460px;
+            padding: 1.2em 1em;
             box-shadow: 0 2px 16px rgba(11,22,65,0.11);
+            z-index: 99;
         }
         .profile-bottom-img {
-            width: 110px;
-            height: 110px;
+            width: 75px;
+            height: 75px;
             object-fit: cover;
             border-radius: 100px;
             border: 3px solid #ffb700;
         }
         .profile-bottom-details h2 {
             margin: 0 0 0.2em 0;
-            font-size: 1.2em;
+            font-size: 1.1em;
             color: #ffb700;
         }
         .profile-bottom-details p {
@@ -232,14 +276,15 @@
         }
         .profile-bottom-details .whatsapp-link {
             display: inline-block;
-            margin-top: 0.6em;
+            margin-top: 0.4em;
             background: #25d366;
             color: #fff;
             border-radius: 8px;
-            padding: 0.5em 1em;
+            padding: 0.4em 1em;
             font-weight: 600;
             text-decoration: none;
             transition: background 0.2s;
+            font-size: 1em;
         }
         .profile-bottom-details .whatsapp-link:hover {
             background: #128c7e;
@@ -262,11 +307,13 @@
             .profile-bottom {
                 flex-direction: column;
                 align-items: flex-start;
-                padding: 1em;
+                padding: 0.8em;
+                left: 0;
+                bottom: 0;
             }
             .profile-bottom-img {
-                width: 80px;
-                height: 80px;
+                width: 55px;
+                height: 55px;
             }
         }
     </style>
@@ -300,10 +347,10 @@
 </head>
 <body>
     <!-- Background Image -->
-    <img src="![image2](image2)" class="bg-img" alt="Dubai Skyline Background">
+    <img src="![image3](image3)" class="bg-img" alt="Dubai Skyline Background">
     <div class="overlay"></div>
     <header>
-        <h1>Dubai Properties</h1>
+        <h1>Investing in Dubai Real Estate</h1>
         <p>Discover Luxury Real Estate & Wonders</p>
     </header>
     <div class="container">
@@ -318,6 +365,53 @@
                 <li><i class="fas fa-globe"></i> Safe, Tax-Free & Global City</li>
                 <li><i class="fas fa-building"></i> Modern Infrastructure & World-Class Developments</li>
             </ul>
+        </div>
+
+        <!-- Comparison Chart -->
+        <div class="comparison-chart">
+            <h3>Dubai vs Other Countries - Investment Comparison</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Dubai</th>
+                        <th>Other Countries</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rental Yield</td>
+                        <td class="positive">Up to 8-12%</td>
+                        <td>3-5%</td>
+                    </tr>
+                    <tr>
+                        <td>Taxation</td>
+                        <td class="positive">No Property Tax</td>
+                        <td>Property Tax Applicable</td>
+                    </tr>
+                    <tr>
+                        <td>Golden Visa</td>
+                        <td class="positive">Available</td>
+                        <td>Limited/Not Available</td>
+                    </tr>
+                    <tr>
+                        <td>Lifestyle</td>
+                        <td class="positive">Luxurious & Modern</td>
+                        <td>Varies</td>
+                    </tr>
+                    <tr>
+                        <td>Safety</td>
+                        <td class="positive">Top Global Ranking</td>
+                        <td>Varies</td>
+                    </tr>
+                    <tr>
+                        <td>Investment Process</td>
+                        <td class="positive">Transparent & Fast</td>
+                        <td>Complex</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Dubai always stands out for positive investment, lifestyle, and growth opportunities.</strong></p>
         </div>
 
         <!-- Dubai Wonders Section -->
@@ -445,14 +539,14 @@
                 <!-- Dubai Official Instagram -->
                 <div class="insta-profile">
                     <a href="https://www.instagram.com/dubai/" target="_blank">
-                        <img src="https://instagram.fdel1-2.fna.fbcdn.net/v/t51.2885-19/118206527_314116243263859_5426743868120608684_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.fdel1-2.fna.fbcdn.net&_nc_cat=1&_nc_ohc=ZJKY1pC7ZJMAX8kRHfT&edm=APs17CUBAAAA&ccb=7-5&oh=00_AYD4ZEBwFv6Fv5XjVLoBzKJzvHuFv2Tgoh9sl9BDQEqQXg&oe=6645A51A&_nc_sid=10d13b" alt="Dubai Official Profile">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Dubai_icon.png" alt="Dubai Official Profile">
                     </a>
                     <span>@dubai</span>
                 </div>
                 <!-- Faza Official Instagram -->
                 <div class="insta-profile">
                     <a href="https://www.instagram.com/faz3/" target="_blank">
-                        <img src="https://instagram.fdel1-2.fna.fbcdn.net/v/t51.2885-19/119209226_315338566370700_5639639403389319682_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.fdel1-2.fna.fbcdn.net&_nc_cat=1&_nc_ohc=ZJKY1pC7ZJMAX8kRHfT&edm=APs17CUBAAAA&ccb=7-5&oh=00_AYD4ZEBwFv6Fv5XjVLoBzKJzvHuFv2Tgoh9sl9BDQEqQXg&oe=6645A51A&_nc_sid=10d13b" alt="Faza Official Profile">
+                        <img src="https://pbs.twimg.com/profile_images/1171280547245381632/nwHnD8Vs_400x400.jpg" alt="Faza Official Profile">
                     </a>
                     <span>@faz3</span>
                 </div>
@@ -472,7 +566,7 @@
                 <a href="https://www.linkedin.com/in/mohammad-hamza-ansari/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
             </div>
             <a class="whatsapp-link" href="https://api.whatsapp.com/send/?phone=918266852055&text&type=phone_number&app_absent=0" target="_blank">
-                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                <i class="fab fa-whatsapp"></i> Consult on WhatsApp
             </a>
         </div>
     </div>
