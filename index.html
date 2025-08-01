@@ -326,50 +326,39 @@
             font-size: 1.1em;
         }
 
-        /* Consult Popup */
-        .consult-popup {
+        /* Mini WhatsApp Consult Popup */
+        .consult-popup-mini {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 22px;
+            right: 22px;
             background: #fff;
-            color: #1f3674;
-            border-radius: 16px;
+            border-radius: 50px;
             box-shadow: 0 2px 16px rgba(11,22,65,0.15);
-            padding: 1.2em 1.5em 1em 1.5em;
             z-index: 1500;
-            min-width: 230px;
-            max-width: 95vw;
+            padding: 0.10em 0.35em;
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            font-size: 1.1em;
-            transition: transform 0.2s, opacity 0.2s;
+            align-items: center;
         }
-        .consult-popup .consult-title {
-            font-weight: 700;
-            color: #ffb700;
-            margin-bottom: .3em;
-            font-size: 1.15em;
-        }
-        .consult-popup .consult-text {
-            margin-bottom: 1em;
-            color: #1f3674;
-        }
-        .consult-popup .consult-btn {
-            display: inline-block;
+        .consult-btn-mini {
             background: #25d366;
             color: #fff;
             border: none;
-            border-radius: 8px;
-            padding: 0.5em 1.2em;
+            border-radius: 30px;
+            padding: 0.30em 1em 0.30em 0.8em;
             font-weight: 700;
-            font-size: 1.03em;
+            font-size: 0.95em;
             text-decoration: none;
-            cursor: pointer;
-            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            box-shadow: 0 1px 5px rgba(11,22,65,0.09);
+            transition: background 0.18s;
         }
-        .consult-popup .consult-btn:hover {
+        .consult-btn-mini:hover {
             background: #128c7e;
+        }
+        .consult-btn-mini i {
+            font-size: 1.18em;
         }
         @media(max-width: 700px) {
             .container {
@@ -386,10 +375,10 @@
                 flex-direction: column;
                 gap: 1em;
             }
-            .consult-popup {
+            .consult-popup-mini {
                 right: 10px;
                 bottom: 10px;
-                padding: 0.8em 0.7em;
+                padding: 0.08em 0.2em;
             }
         }
     </style>
@@ -433,7 +422,7 @@
                 }
             });
 
-            // Subscribe form with SheetDB
+            // Google Sheets backend integration for subscribe
             document.getElementById('subscribe-form').onsubmit = function(e) {
                 e.preventDefault();
                 fetch('https://sheetdb.io/api/v1/s2ug9xoasbjpn', {
@@ -441,9 +430,9 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         data: {
-                            name: document.getElementById('sub-name').value,
-                            email: document.getElementById('sub-email').value,
-                            number: document.getElementById('sub-number').value
+                            Name: document.getElementById('sub-name').value,
+                            Email: document.getElementById('sub-email').value,
+                            Contact: document.getElementById('sub-number').value
                         }
                     })
                 })
@@ -452,7 +441,7 @@
                     document.getElementById('subscribe-success').innerText = "Thank you for subscribing! You'll now get first access to all discounts.";
                     setTimeout(function() {
                         document.querySelector('.subscribe-popup-bg').classList.remove('active');
-                        document.querySelector('.consult-popup').style.display = 'flex';
+                        document.querySelector('.consult-popup-mini').style.display = 'flex';
                     }, 2000);
                     document.getElementById('subscribe-form').reset();
                 })
@@ -465,7 +454,7 @@
 </head>
 <body>
     <!-- Background Image -->
-    <img src="![image3](image3)" class="bg-img" alt="Dubai Skyline Background">
+    <img src="images/dubai-bg.jpg" class="bg-img" alt="">
     <div class="overlay"></div>
     <header>
         <h1>Investing in Dubai Real Estate</h1>
@@ -600,19 +589,19 @@
             <h3>Top Dubai Developers (Click to visit official site)</h3>
             <div class="dev-list">
                 <div class="dev" data-name="Emaar">
-                    <img src="![image3](image3)" alt="Emaar Logo">
+                    <img src="https://logos-world.net/wp-content/uploads/2021/10/Emaar-Properties-Logo.png" alt="Emaar Logo">
                     Emaar
                 </div>
                 <div class="dev" data-name="Nakheel">
-                    <img src="![image4](image4)" alt="Nakheel Logo">
+                    <img src="images/nakheel-logo.png" alt="Nakheel Logo">
                     Nakheel
                 </div>
                 <div class="dev" data-name="Meraas">
-                    <img src="![image5](image5)" alt="Meraas Logo">
+                    <img src="images/meraas-logo.png" alt="Meraas Logo">
                     Meraas
                 </div>
                 <div class="dev" data-name="Sobha">
-                    <img src="![image6](image6)" alt="Sobha Logo">
+                    <img src="images/sobha-logo.png" alt="Sobha Logo">
                     Sobha
                 </div>
                 <div class="dev" data-name="BNW">
@@ -692,11 +681,9 @@
             <div class="subscribe-success" id="subscribe-success"></div>
         </form>
     </div>
-    <!-- Consult popup -->
-    <div class="consult-popup" style="display:flex;">
-        <span class="consult-title"><i class="fab fa-whatsapp"></i> Free Consultation</span>
-        <div class="consult-text">Want expert advice on Dubai real estate? <br>Talk directly with our property consultant!</div>
-        <a class="consult-btn" href="https://api.whatsapp.com/send/?phone=918266852055&text&type=phone_number&app_absent=0" target="_blank">
+    <!-- Mini WhatsApp Consult Popup -->
+    <div class="consult-popup-mini" style="display:flex;">
+        <a class="consult-btn-mini" href="https://api.whatsapp.com/send/?phone=918266852055&text&type=phone_number&app_absent=0" target="_blank">
             <i class="fab fa-whatsapp"></i> Consult on WhatsApp
         </a>
     </div>
