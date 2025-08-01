@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investing in Dubai Real Estate - Mohammad Hamza</title>
+    <title>Investing in Dubai Real Estate</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
@@ -235,86 +235,96 @@
             letter-spacing: 1px;
             margin-top: 0.4em;
         }
-        .profile-bottom {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            display: flex;
+        /* POPUP STYLES */
+        .subscribe-popup-bg {
+            display: none;
+            position: fixed; left: 0; top: 0; width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.35);
+            z-index: 1000;
+            justify-content: center;
             align-items: center;
-            gap: 1.5em;
-            background: rgba(31,54,116,0.88);
-            border-radius: 16px;
-            padding: 1.2em 1em;
-            box-shadow: 0 2px 16px rgba(11,22,65,0.11);
-            z-index: 99;
         }
-        .profile-bottom-img {
-            width: 75px;
-            height: 75px;
-            object-fit: cover;
-            border-radius: 100px;
-            border: 3px solid #ffb700;
+        .subscribe-popup-bg.active { display: flex; }
+        .subscribe-popup {
+            width: 320px;
+            max-width: 95vw;
+            background: #fff;
+            color: #222;
+            padding: 1.4em 1.5em 1.2em 1.5em;
+            border-radius: 18px;
+            box-shadow: 0 6px 32px rgba(11, 22, 65, 0.19);
+            text-align: center;
+            transform: scale(0.5);
+            opacity: 0;
+            transition: all 0.25s cubic-bezier(.68,-0.55,.27,1.55);
         }
-        .profile-bottom-details h2 {
-            margin: 0 0 0.2em 0;
-            font-size: 1.1em;
-            color: #ffb700;
+        .subscribe-popup-bg.active .subscribe-popup {
+            transform: scale(1);
+            opacity: 1;
         }
-        .profile-bottom-details p {
-            margin: 0.2em 0 0.7em 0;
+        .subscribe-popup h2 {
+            font-size: 1.2em;
+            color: #1f3674;
+            margin: 0 0 0.5em 0;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .subscribe-popup p {
+            color: #444;
+            margin-bottom: 1em;
             font-size: 1em;
-            color: #dae3fa;
+            font-weight: 500;
         }
-        .profile-bottom-details .socials a {
-            margin-right: 18px;
-            color: #ffb700;
-            font-size: 2em;
-            transition: color 0.2s;
-        }
-        .profile-bottom-details .socials a:hover {
-            color: #fff;
-        }
-        .profile-bottom-details .whatsapp-link {
-            display: inline-block;
-            margin-top: 0.4em;
-            background: #25d366;
-            color: #fff;
-            border-radius: 8px;
-            padding: 0.4em 1em;
+        .subscribe-popup label {
+            display: block;
+            margin-top: 0.7em;
+            font-size: 1em;
+            color: #1f3674;
+            text-align: left;
             font-weight: 600;
-            text-decoration: none;
-            transition: background 0.2s;
+        }
+        .subscribe-popup input {
+            width: 100%;
+            padding: 0.6em 0.5em;
+            border-radius: 8px;
+            margin-top: 0.17em;
+            border: 1px solid #e0e7ff;
             font-size: 1em;
+            background: #f7f8fa;
         }
-        .profile-bottom-details .whatsapp-link:hover {
-            background: #128c7e;
+        .subscribe-popup button {
+            margin-top: 1.1em;
+            background: linear-gradient(90deg, #ffb700 20%, #1f3674 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.68em 1.8em;
+            font-size: 1.1em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: background 0.15s;
         }
-        @media(max-width: 700px) {
-            .container {
-                padding: 1em;
-            }
-            .locations-grid {
-                grid-template-columns: 1fr;
-            }
-            .dev-list {
-                gap: 8px;
-                flex-direction: column;
-            }
-            .instagram-feeds {
-                flex-direction: column;
-                gap: 1em;
-            }
-            .profile-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 0.8em;
-                left: 0;
-                bottom: 0;
-            }
-            .profile-bottom-img {
-                width: 55px;
-                height: 55px;
-            }
+        .subscribe-popup .close-btn {
+            position: absolute;
+            right: 20px; top: 17px;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: #aaa;
+            cursor: pointer;
+        }
+        .subscribe-popup .close-btn:hover {
+            color: #1f3674;
+        }
+        .subscribe-success {
+            color: #1f3674;
+            font-weight: bold;
+            margin-top: 1em;
+            font-size: 1.1em;
+        }
+        @media (max-width: 700px) {
+            .subscribe-popup { width: 92vw; padding: 1.2em 0.2em; }
         }
     </style>
     <script>
@@ -324,24 +334,49 @@
             "Nakheel": "https://www.nakheel.com/",
             "Sobha": "https://www.sobha.com/",
             "Meraas": "https://www.meraas.com/",
-            "Danube": "https://www.danubebuilders.com/",
+            "Danube": "https://danubeproperties.com/",
             "Samana": "https://samanadevelopers.com/",
             "Damac": "https://www.damacproperties.com/",
             "Select Group": "https://www.select-group.ae/",
             "Ellington": "https://ellingtongroup.com/",
-            "MAG": "https://www.magproperty.com/",
+            "MAG": "https://mag.global/",
             "Azizi": "https://azizidevelopments.com/",
             "Dubai Properties": "https://www.dp.ae/"
         };
         window.onload = function() {
             document.querySelectorAll('.dev').forEach(dev => {
-                dev.addEventListener('click', function() {
+                dev.addEventListener('click', function(e) {
+                    e.preventDefault();
                     const name = dev.getAttribute("data-name");
                     if(developerLinks[name]) {
-                        window.open(developerLinks[name], '_blank');
+                        window.open(developerLinks[name], '_blank', 'noopener');
+                        // keep popup open
+                        document.querySelector('.subscribe-popup-bg').classList.add('active');
                     }
                 });
             });
+
+            // Show popup on load after 2s
+            setTimeout(() => {
+                document.querySelector('.subscribe-popup-bg').classList.add('active');
+            }, 2000);
+
+            // Close popup
+            document.querySelectorAll('.close-btn').forEach(btn => {
+                btn.onclick = function() {
+                    document.querySelector('.subscribe-popup-bg').classList.remove('active');
+                }
+            });
+
+            // Subscribe form
+            document.getElementById('subscribe-form').onsubmit = function(e) {
+                e.preventDefault();
+                document.getElementById('subscribe-success').innerText = "Thank you for subscribing! You'll now get first access to all discounts.";
+                setTimeout(function() {
+                    document.querySelector('.subscribe-popup-bg').classList.remove('active');
+                }, 2000);
+                this.reset();
+            };
         };
     </script>
 </head>
@@ -420,56 +455,56 @@
             <div class="locations-grid">
                 <!-- Burj Khalifa -->
                 <div class="location-card">
-                    <a href="https://www.google.com/maps?q=Burj+Khalifa" target="_blank">
+                    <a href="https://www.google.com/maps?q=Burj+Khalifa" target="_blank" rel="noopener">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Burj_Khalifa.jpg" alt="Burj Khalifa">
                     </a>
                     <div class="caption">Burj Khalifa</div>
                 </div>
                 <!-- Burj Al Arab -->
                 <div class="location-card">
-                    <a href="https://www.google.com/maps?q=Burj+Al+Arab" target="_blank">
+                    <a href="https://www.google.com/maps?q=Burj+Al+Arab" target="_blank" rel="noopener">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Burj_Al_Arab_%28Dubai%29.jpg" alt="Burj Al Arab">
                     </a>
                     <div class="caption">Burj Al Arab</div>
                 </div>
                 <!-- Palm Jumeirah -->
                 <div class="location-card">
-                    <a href="https://www.google.com/maps?q=Palm+Jumeirah" target="_blank">
+                    <a href="https://www.google.com/maps?q=Palm+Jumeirah" target="_blank" rel="noopener">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Palm_Jumeirah_aerial_view.jpg" alt="Palm Jumeirah">
                     </a>
                     <div class="caption">Palm Jumeirah</div>
                 </div>
                 <!-- Dubai Downtown -->
                 <div class="location-card">
-                    <a href="https://www.google.com/maps?q=Dubai+Downtown" target="_blank">
+                    <a href="https://www.google.com/maps?q=Dubai+Downtown" target="_blank" rel="noopener">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Dubai_Downtown_Skyline.jpg" alt="Dubai Downtown">
                     </a>
                     <div class="caption">Dubai Downtown</div>
                 </div>
                 <!-- La Mer -->
                 <div class="location-card">
-                    <a href="https://www.google.com/maps?q=La+Mer+Dubai" target="_blank">
+                    <a href="https://www.google.com/maps?q=La+Mer+Dubai" target="_blank" rel="noopener">
                         <img src="https://images.unsplash.com/photo-1548784202-f7c4d3d1e6c7?auto=format&fit=crop&w=600&q=80" alt="La Mer Dubai">
                     </a>
                     <div class="caption">La Mer Dubai</div>
                 </div>
                 <!-- Dubai High Rise -->
                 <div class="location-card">
-                    <a href="https://www.google.com/maps?q=Dubai+Marina" target="_blank">
+                    <a href="https://www.google.com/maps?q=Dubai+Marina" target="_blank" rel="noopener">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Dubai_Marina_skyline_2015.jpg" alt="Dubai High Rise">
                     </a>
                     <div class="caption">Dubai High Rise</div>
                 </div>
                 <!-- Dubai Adventures -->
                 <div class="location-card">
-                    <a href="https://www.google.com/maps?q=Dubai+Desert" target="_blank">
+                    <a href="https://www.google.com/maps?q=Dubai+Desert" target="_blank" rel="noopener">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Dubai_Desert_Safari.jpg" alt="Dubai Adventures">
                     </a>
                     <div class="caption">Dubai Adventures</div>
                 </div>
                 <!-- Dubai Sports -->
                 <div class="location-card">
-                    <a href="https://www.google.com/maps?q=Dubai+Sports+City" target="_blank">
+                    <a href="https://www.google.com/maps?q=Dubai+Sports+City" target="_blank" rel="noopener">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Dubai_Sports_City.jpg" alt="Dubai Sports">
                     </a>
                     <div class="caption">Dubai Sports</div>
@@ -498,7 +533,7 @@
                     Meraas
                 </div>
                 <div class="dev" data-name="Danube">
-                    <img src="https://www.danubebuilders.com/assets/images/logo.svg" alt="Danube Logo">
+                    <img src="https://danubeproperties.com/sites/default/files/Danube%20Properties%20Logo.png" alt="Danube Logo">
                     Danube
                 </div>
                 <div class="dev" data-name="Samana">
@@ -518,7 +553,7 @@
                     Ellington
                 </div>
                 <div class="dev" data-name="MAG">
-                    <img src="https://www.magproperty.com/assets/images/logo.svg" alt="MAG Logo">
+                    <img src="https://mag.global/wp-content/uploads/2021/03/MAG-Logo.svg" alt="MAG Logo">
                     MAG
                 </div>
                 <div class="dev" data-name="Azizi">
@@ -538,14 +573,14 @@
             <div class="instagram-feeds">
                 <!-- Dubai Official Instagram -->
                 <div class="insta-profile">
-                    <a href="https://www.instagram.com/dubai/" target="_blank">
+                    <a href="https://www.instagram.com/dubai/" target="_blank" rel="noopener">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Dubai_icon.png" alt="Dubai Official Profile">
                     </a>
                     <span>@dubai</span>
                 </div>
                 <!-- Faza Official Instagram -->
                 <div class="insta-profile">
-                    <a href="https://www.instagram.com/faz3/" target="_blank">
+                    <a href="https://www.instagram.com/faz3/" target="_blank" rel="noopener">
                         <img src="https://pbs.twimg.com/profile_images/1171280547245381632/nwHnD8Vs_400x400.jpg" alt="Faza Official Profile">
                     </a>
                     <span>@faz3</span>
@@ -554,21 +589,21 @@
         </div>
     </div>
 
-    <!-- Profile Bottom Section -->
-    <div class="profile-bottom">
-        <img src="![image1](image1)" alt="Mohammad Hamza" class="profile-bottom-img">
-        <div class="profile-bottom-details">
-            <h2>Mohammad Hamza</h2>
-            <p>Dubai Real Estate Professional | Luxury & Investments Specialist</p>
-            <div class="socials">
-                <a href="https://www.instagram.com/mohammadhamza_dxb/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61552948559704" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.linkedin.com/in/mohammad-hamza-ansari/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <a class="whatsapp-link" href="https://api.whatsapp.com/send/?phone=918266852055&text&type=phone_number&app_absent=0" target="_blank">
-                <i class="fab fa-whatsapp"></i> Consult on WhatsApp
-            </a>
-        </div>
+    <!-- Subscribe popup -->
+    <div class="subscribe-popup-bg">
+        <form class="subscribe-popup" id="subscribe-form" autocomplete="off">
+            <button type="button" class="close-btn" title="Close">&times;</button>
+            <h2>Be First to Grab Dubai Discounts!</h2>
+            <p>Subscribe now to get exclusive early access to the best deals & offers in Dubai real estate.</p>
+            <label for="sub-name">Name</label>
+            <input type="text" id="sub-name" name="name" required maxlength="60" placeholder="Your Name">
+            <label for="sub-email">Email</label>
+            <input type="email" id="sub-email" name="email" required maxlength="80" placeholder="you@email.com">
+            <label for="sub-number">Mobile Number</label>
+            <input type="tel" id="sub-number" name="number" pattern="[0-9\-\+ ]{6,18}" maxlength="18" required placeholder="Your Number">
+            <button type="submit">Subscribe Now</button>
+            <div class="subscribe-success" id="subscribe-success"></div>
+        </form>
     </div>
 </body>
 </html>
