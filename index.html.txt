@@ -1,36 +1,53 @@
-<script>
-  const form = document.getElementById('subscribe-form');
-  const msg = document.getElementById('response-msg');
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Subscribe</title>
+</head>
+<body>
+  <h2>Subscribe to Our Newsletter</h2>
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  <form id="subscribe-form">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <button type="submit">Subscribe</button>
+  </form>
 
-    const formData = new FormData(form);
-    const data = {};
+  <p id="response-msg" style="color: green;"></p>
 
-    formData.forEach((value, key) => {
-      data[key] = value;
+  <script>
+    const form = document.getElementById('subscribe-form');
+    const msg = document.getElementById('response-msg');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = {};
+
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      fetch('https://sheetdb.io/api/v1/9ghcdx2pecwl8', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ data: data })
+      })
+      .then(response => {
+        if (response.ok) {
+          msg.innerHTML = "✅ Successfully subscribed!";
+          form.reset();
+        } else {
+          msg.innerHTML = "❌ Submission failed.";
+        }
+      })
+      .catch(error => {
+        msg.innerHTML = "❌ Something went wrong.";
+        console.error('Error:', error);
+      });
     });
-
-    fetch('https://sheetdb.io/api/v1/9ghcdx2pecwl8', {  // ✅ FIXED here
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ data: data })
-    })
-    .then(response => {
-      if (response.ok) {
-        msg.innerHTML = "✅ Successfully subscribed!";
-        form.reset();
-      } else {
-        msg.innerHTML = "❌ Submission failed.";
-      }
-    })
-    .catch(error => {
-      msg.innerHTML = "❌ Something went wrong.";
-      console.error('Error:', error);
-    });
-  });
-</script>
-
+  </script>
+</body>
+</html>
