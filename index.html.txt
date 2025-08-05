@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Subscribe</title>
+</head>
+<body>
+  <h2>Subscribe to Our Newsletter</h2>
+  <form id="subscriber-form">
+    <input type="text" id="name" placeholder="Your Name" required><br><br>
+    <input type="email" id="email" placeholder="Your Email" required><br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="response"></p>
+
+  <script>
+    document.getElementById("subscriber-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value
+      };
+
+      fetch("https://sheetdb.io/api/v1/5kz0ym7vr2pb9", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.text())
+      .then(result => {
+        document.getElementById("response").innerText = "✅ Success: " + result;
+      })
+      .catch(error => {
+        document.getElementById("response").innerText = "❌ Error: " + error;
+      });
+    });
+  </script>
+</body>
+</html>
