@@ -3,689 +3,961 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investing in Dubai Real Estate</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Investing in Dubai Real Estate - Premium Investment Opportunities</title>
+    <meta name="description" content="Discover premium real estate investment opportunities in Dubai. High rental yields, tax-free returns, Golden Visa eligibility, and luxury properties in the world's fastest-growing city.">
+    <meta name="keywords" content="Dubai real estate, property investment, Dubai properties, rental yield, Golden Visa, luxury real estate">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Investing in Dubai Real Estate - Premium Investment Opportunities">
+    <meta property="og:description" content="Unlock premium real estate opportunities in Dubai with high returns and Golden Visa benefits.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://investingindubairealestate.com">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        body {
-            font-family: 'Montserrat', Arial, sans-serif;
+        * {
             margin: 0;
-            min-height: 100vh;
-            background: linear-gradient(180deg, #0b1641 0%, #1f3674 60%, #f7f8fa 100%);
-            color: #fff;
-            position: relative;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #c9a96e;
+            --secondary-color: #1a365d;
+            --accent-color: #f7931e;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-900: #111827;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
             overflow-x: hidden;
         }
-        .bg-img {
+
+        /* Loading Animation - Fixed */
+        .loading {
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -2;
-            object-fit: cover;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(201, 169, 110, 0.3);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 169, 110, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+            color: white;
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23c9a96e" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23c9a96e" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="%23c9a96e" opacity="0.1"/><circle cx="10" cy="60" r="1" fill="%23c9a96e" opacity="0.1"/><circle cx="90" cy="40" r="1" fill="%23c9a96e" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
             opacity: 0.5;
         }
-        .overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: linear-gradient(180deg, #0b1641cc 0%, #1f3674cc 60%, #f7f8fa88 100%);
-            z-index: -1;
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
-        header {
-            text-align: center;
-            padding: 2.2em 0 1em 0;
-            background: transparent;
-        }
-        header h1 {
-            font-size: 2.5em;
+
+        .hero h1 {
+            font-size: 3.5rem;
             font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.2em;
-            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        header p {
-            font-size: 1.2em;
-            font-weight: 400;
-            color: #c6d0ec;
-            margin-top: 0;
-            margin-bottom: 0.7em;
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        /* Why Dubai Section */
+        .why-dubai {
+            padding: 6rem 2rem;
+            background: var(--gray-50);
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2em 1em;
-            background: rgba(10, 22, 65, 0.75);
-            border-radius: 18px;
-            box-shadow: 0 6px 32px rgba(11, 22, 65, 0.09);
-            position: relative;
-        }
-        .benefits {
-            margin: 2em 0;
-            background: linear-gradient(90deg, #1f3674aa 70%, #f7f8fa33 100%);
-            border-radius: 12px;
-            padding: 2em;
-            box-shadow: 0 4px 16px rgba(11,22,65,0.12);
-            color: #fff;
-        }
-        .benefits h3 {
-            color: #ffb700;
-            font-size: 1.3em;
-            margin-bottom: 1em;
-            letter-spacing: 1px;
-        }
-        .benefits-list {
-            list-style: none;
-            padding: 0;
-        }
-        .benefits-list li {
-            margin-bottom: 1em;
-            font-size: 1.08em;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-        .benefits-list li i {
-            color: #ffb700;
-            margin-top: 2px;
-        }
-        .comparison-chart {
-            margin: 2em 0;
-            background: #16235b;
-            border-radius: 12px;
-            padding: 1.5em 1em;
-            box-shadow: 0 4px 16px rgba(11,22,65,0.12);
-            color: #fff;
-            overflow-x: auto;
-        }
-        .comparison-chart h3 {
-            color: #ffb700;
-            font-size: 1.2em;
-            margin-bottom: 1em;
-        }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 1em;
-            font-size: 1em;
-        }
-        .comparison-table th, .comparison-table td {
-            border: 1px solid #2b388f;
-            padding: .8em;
-            text-align: left;
-        }
-        .comparison-table th {
-            background: #233176;
-            color: #ffb700;
-        }
-        .comparison-table td.positive {
-            color: #55ffb7;
-            font-weight: bold;
-        }
-        .comparison-table td {
-            color: #fff;
-        }
-        .locations {
-            margin-top: 2em;
-        }
-        .locations h3 {
-            color: #ffb700;
-            font-size: 1.3em;
-            margin-bottom: 1em;
-        }
-        .locations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.2em;
-        }
-        .location-card {
-            background: rgba(31,54,116,0.85);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(11,22,65,0.11);
-            transition: transform 0.15s;
-        }
-        .location-card:hover {
-            transform: translateY(-4px) scale(1.03);
-        }
-        .location-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            cursor: pointer;
-            display: block;
-        }
-        .location-card .caption {
-            padding: .7em 1em;
-            font-weight: 600;
-            color: #fff;
-        }
-        .developers {
-            margin-top: 2.5em;
-        }
-        .developers h3 {
-            color: #ffb700;
-            font-size: 1.3em;
-            margin-bottom: 1em;
-        }
-        .dev-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-        }
-        .dev {
-            background: #fff;
-            padding: .8em 1.2em;
-            border-radius: 12px;
-            font-weight: bold;
-            color: #1f3674;
-            box-shadow: 0 2px 8px rgba(11,22,65,0.06);
-            margin-bottom: 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: background 0.18s, color 0.18s;
-            min-width: 140px;
-        }
-        .dev img {
-            height: 32px;
-            width: auto;
-            object-fit: contain;
-            background: #fff;
-            border-radius: 4px;
-        }
-        .dev:hover {
-            background: #ffb700;
-            color: #fff;
-        }
-        .instagram-widget {
-            margin: 2em 0;
-        }
-        .instagram-widget h3 {
-            color: #ffb700;
-            font-size: 1.3em;
-            margin-bottom: 1em;
-        }
-        .instagram-feeds {
-            display: flex;
-            gap: 2em;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-        }
-        .insta-profile {
-            text-align: center;
-            margin: 0;
-        }
-        .insta-profile a {
-            display: inline-block;
-            border-radius: 100px;
-            overflow: hidden;
-            border: 3px solid #ffb700;
-            box-shadow: 0 2px 8px rgba(11,22,65,0.10);
-            width: 90px;
-            height: 90px;
-            margin-bottom: 0.5em;
-            background: #fff;
-        }
-        .insta-profile img {
-            width: 90px; height: 90px; object-fit: cover;
-            border-radius: 100px;
-        }
-        .insta-profile span {
-            display: block;
-            color: #fff;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-top: 0.4em;
-        }
-        /* POPUP STYLES */
-        .subscribe-popup-bg {
-            display: none;
-            position: fixed; left: 0; top: 0; width: 100vw; height: 100vh;
-            background: rgba(0,0,0,0.35);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        .subscribe-popup-bg.active { display: flex; }
-        .subscribe-popup {
-            width: 320px;
-            max-width: 95vw;
-            background: #fff;
-            color: #222;
-            padding: 1.4em 1.5em 1.2em 1.5em;
-            border-radius: 18px;
-            box-shadow: 0 6px 32px rgba(11, 22, 65, 0.19);
-            text-align: center;
-            transform: scale(0.5);
-            opacity: 0;
-            transition: all 0.25s cubic-bezier(.68,-0.55,.27,1.55);
-            position: relative;
-        }
-        .subscribe-popup-bg.active .subscribe-popup {
-            transform: scale(1);
-            opacity: 1;
-        }
-        .subscribe-popup h2 {
-            font-size: 1.2em;
-            color: #1f3674;
-            margin: 0 0 0.5em 0;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        .subscribe-popup p {
-            color: #444;
-            margin-bottom: 1em;
-            font-size: 1em;
-            font-weight: 500;
-        }
-        .subscribe-popup label {
-            display: block;
-            margin-top: 0.7em;
-            font-size: 1em;
-            color: #1f3674;
-            text-align: left;
-            font-weight: 600;
-        }
-        .subscribe-popup input {
-            width: 100%;
-            padding: 0.6em 0.5em;
-            border-radius: 8px;
-            margin-top: 0.17em;
-            border: 1px solid #e0e7ff;
-            font-size: 1em;
-            background: #f7f8fa;
-        }
-        .subscribe-popup button {
-            margin-top: 1.1em;
-            background: linear-gradient(90deg, #ffb700 20%, #1f3674 100%);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 0.68em 1.8em;
-            font-size: 1.1em;
-            font-weight: 700;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: background 0.15s;
-        }
-        .subscribe-popup .close-btn {
-            position: absolute;
-            right: 20px; top: 17px;
-            background: none;
-            border: none;
-            font-size: 1.5em;
-            color: #aaa;
-            cursor: pointer;
-        }
-        .subscribe-popup .close-btn:hover {
-            color: #1f3674;
-        }
-        .subscribe-success {
-            color: #1f3674;
-            font-weight: bold;
-            margin-top: 1em;
-            font-size: 1.1em;
         }
 
-        /* Mini WhatsApp Consult Popup */
-        .consult-popup-mini {
-            position: fixed;
-            bottom: 22px;
-            right: 22px;
-            background: #fff;
-            border-radius: 50px;
-            box-shadow: 0 2px 16px rgba(11,22,65,0.15);
-            z-index: 1500;
-            padding: 0.10em 0.35em;
-            display: flex;
-            align-items: center;
-        }
-        .consult-btn-mini {
-            background: #25d366;
-            color: #fff;
-            border: none;
-            border-radius: 30px;
-            padding: 0.30em 1em 0.30em 0.8em;
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
             font-weight: 700;
-            font-size: 0.95em;
-            text-decoration: none;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 0.5em;
-            box-shadow: 0 1px 5px rgba(11,22,65,0.09);
-            transition: background 0.18s;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
-        .consult-btn-mini:hover {
-            background: #128c7e;
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
         }
-        .consult-btn-mini i {
-            font-size: 1.18em;
+
+        /* Comparison Table */
+        .comparison {
+            padding: 6rem 2rem;
+            background: white;
         }
-        @media(max-width: 700px) {
-            .container {
-                padding: 1em;
+
+        .comparison-table {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .comparison-table th {
+            background: var(--secondary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--gray-50);
+        }
+
+        .comparison-table .dubai-column {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Dubai Landmarks */
+        .landmarks {
+            padding: 6rem 2rem;
+            background: var(--gray-50);
+        }
+
+        .landmarks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .landmark-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .landmark-card:hover {
+            transform: scale(1.05);
+        }
+
+        .landmark-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .landmark-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .landmark-content h3 {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Developers Section */
+        .developers {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .developers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .developer-card {
+            background: var(--gray-50);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .developer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .developer-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--secondary-color);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
             }
-            .locations-grid {
-                grid-template-columns: 1fr;
+
+            .hero h1 {
+                font-size: 2.5rem;
             }
-            .dev-list {
-                gap: 8px;
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
                 flex-direction: column;
-            }
-            .instagram-feeds {
-                flex-direction: column;
-                gap: 1em;
-            }
-            .consult-popup-mini {
-                right: 10px;
-                bottom: 10px;
-                padding: 0.08em 0.2em;
+                align-items: center;
             }
         }
     </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">Dubai Real Estate</a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#why-dubai">Why Dubai</a></li>
+                <li><a href="#properties">Properties</a></li>
+                <li><a href="#developers">Developers</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-btn">Get Started</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Invest in Dubai's Future</h1>
+            <p>Unlock premium real estate opportunities in Dubai: unrivaled luxury, high returns, and the world's safest, fastest-growing city for investors.</p>
+            <a href="#contact" class="cta-btn">Start Your Investment Journey</a>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">12%</span>
+                    <span class="stat-label">Average Rental Yield</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">0%</span>
+                    <span class="stat-label">Property Tax</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Golden</span>
+                    <span class="stat-label">Visa Eligible</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">#1</span>
+                    <span class="stat-label">Safest City</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Dubai Section -->
+    <section class="why-dubai" id="why-dubai">
+        <div class="container">
+            <h2 class="section-title">Why Choose Dubai Real Estate?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>High Rental Returns</h3>
+                    <p>Enjoy rental yields of up to 8-12%, significantly higher than most global markets. Your investment works harder for you in Dubai.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏛️</div>
+                    <h3>Tax-Free Investment</h3>
+                    <p>No property tax, no capital gains tax, and no income tax. Keep more of your profits with Dubai's investor-friendly tax structure.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌟</div>
+                    <h3>Golden Visa Program</h3>
+                    <p>Qualify for long-term residency with property investments. Secure your family's future with visa benefits and world-class education.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏢</div>
+                    <h3>World-Class Infrastructure</h3>
+                    <p>From Burj Khalifa to Dubai Metro, invest in a city with cutting-edge infrastructure and continuous development.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Safe & Secure</h3>
+                    <p>Dubai ranks among the world's safest cities with stable government, strong legal framework, and investor protection.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Fast Growth Market</h3>
+                    <p>Experience rapid capital appreciation in one of the world's fastest-growing real estate markets with strong demand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison">
+        <div class="container">
+            <h2 class="section-title">Dubai vs Other Investment Destinations</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Dubai</th>
+                            <th>Other Countries</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rental Yield</td>
+                            <td class="dubai-column">Up to 8-12%</td>
+                            <td>3-5%</td>
+                        </tr>
+                        <tr>
+                            <td>Property Tax</td>
+                            <td class="dubai-column">0% Tax</td>
+                            <td>Property Tax Applicable</td>
+                        </tr>
+                        <tr>
+                            <td>Golden Visa</td>
+                            <td class="dubai-column">Available</td>
+                            <td>Limited/Not Available</td>
+                        </tr>
+                        <tr>
+                            <td>Lifestyle</td>
+                            <td class="dubai-column">Luxurious & Modern</td>
+                            <td>Varies</td>
+                        </tr>
+                        <tr>
+                            <td>Safety Rating</td>
+                            <td class="dubai-column">Top Global Ranking</td>
+                            <td>Varies</td>
+                        </tr>
+                        <tr>
+                            <td>Investment Process</td>
+                            <td class="dubai-column">Transparent & Fast</td>
+                            <td>Complex</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dubai Landmarks -->
+    <section class="landmarks">
+        <div class="container">
+            <h2 class="section-title">Iconic Dubai Destinations</h2>
+            <div class="landmarks-grid">
+                <div class="landmark-card" onclick="openMap('Burj Khalifa')">
+                    <div class="landmark-image">🏗️</div>
+                    <div class="landmark-content">
+                        <h3>Burj Khalifa</h3>
+                    </div>
+                </div>
+                <div class="landmark-card" onclick="openMap('Burj Al Arab')">
+                    <div class="landmark-image">🏨</div>
+                    <div class="landmark-content">
+                        <h3>Burj Al Arab</h3>
+                    </div>
+                </div>
+                <div class="landmark-card" onclick="openMap('Palm Jumeirah')">
+                    <div class="landmark-image">🌴</div>
+                    <div class="landmark-content">
+                        <h3>Palm Jumeirah</h3>
+                    </div>
+                </div>
+                <div class="landmark-card" onclick="openMap('Dubai Downtown')">
+                    <div class="landmark-image">🏙️</div>
+                    <div class="landmark-content">
+                        <h3>Dubai Downtown</h3>
+                    </div>
+                </div>
+                <div class="landmark-card" onclick="openMap('Dubai Marina')">
+                    <div class="landmark-image">⛵</div>
+                    <div class="landmark-content">
+                        <h3>Dubai Marina</h3>
+                    </div>
+                </div>
+                <div class="landmark-card" onclick="openMap('La Mer Dubai')">
+                    <div class="landmark-image">🏖️</div>
+                    <div class="landmark-content">
+                        <h3>La Mer Dubai</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Developers -->
+    <section class="developers" id="developers">
+        <div class="container">
+            <h2 class="section-title">Top Dubai Developers</h2>
+            <div class="developers-grid">
+                <div class="developer-card" onclick="openDeveloper('emaar')">
+                    <div class="developer-logo">EM</div>
+                    <h3>Emaar</h3>
+                </div>
+                <div class="developer-card" onclick="openDeveloper('nakheel')">
+                    <div class="developer-logo">NK</div>
+                    <h3>Nakheel</h3>
+                </div>
+                <div class="developer-card" onclick="openDeveloper('meraas')">
+                    <div class="developer-logo">MR</div>
+                    <h3>Meraas</h3>
+                </div>
+                <div class="developer-card" onclick="openDeveloper('sobha')">
+                    <div class="developer-logo">SB</div>
+                    <h3>Sobha</h3>
+                </div>
+                <div class="developer-card" onclick="openDeveloper('damac')">
+                    <div class="developer-logo">DM</div>
+                    <h3>Damac</h3>
+                </div>
+                <div class="developer-card" onclick="openDeveloper('danube')">
+                    <div class="developer-logo">DB</div>
+                    <h3>Danube</h3>
+                </div>
+                <div class="developer-card" onclick="openDeveloper('azizi')">
+                    <div class="developer-logo">AZ</div>
+                    <h3>Azizi</h3>
+                </div>
+                <div class="developer-card" onclick="openDeveloper('select')">
+                    <div class="developer-logo">SG</div>
+                    <h3>Select Group</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Start Your Dubai Investment Journey?</h2>
+            <p>Join thousands of successful investors who chose Dubai for their real estate portfolio. Get expert guidance and exclusive property deals.</p>
+            <div class="cta-buttons">
+                <a href="mailto:info@investingindubairealestate.com" class="btn-primary">Schedule Consultation</a>
+                <a href="tel:+971501234567" class="btn-secondary">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <p>📧 info@investingindubairealestate.com</p>
+                <p>📞 +971 50 123 4567</p>
+                <p>📍 Dubai, United Arab Emirates</p>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="#">Property Investment</a>
+                <a href="#">Golden Visa Assistance</a>
+                <a href="#">Market Analysis</a>
+                <a href="#">Property Management</a>
+            </div>
+            <div class="footer-section">
+                <h3>Areas</h3>
+                <a href="#">Downtown Dubai</a>
+                <a href="#">Dubai Marina</a>
+                <a href="#">Palm Jumeirah</a>
+                <a href="#">Business Bay</a>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <a href="#">Investment Guide</a>
+                <a href="#">Market Reports</a>
+                <a href="#">Legal Information</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Investing in Dubai Real Estate. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script>
-        // Developer links
-        const developerLinks = {
-            "Emaar": "https://www.emaar.com/",
-            "Nakheel": "https://www.nakheel.com/",
-            "Sobha": "https://www.sobha.com/",
-            "Meraas": "https://www.meraas.com/",
-            "Danube": "https://danubeproperties.com/",
-            "Samana": "https://samanadevelopers.com/",
-            "Damac": "https://www.damacproperties.com/",
-            "Select Group": "https://www.select-group.ae/",
-            "Ellington": "https://ellingtongroup.com/",
-            "MAG": "https://mag.global/",
-            "Azizi": "https://azizidevelopments.com/",
-            "Dubai Properties": "https://www.dp.ae/",
-            "BNW": "#"
-        };
-        window.onload = function() {
-            document.querySelectorAll('.dev').forEach(dev => {
-                dev.addEventListener('click', function(e) {
+        // Improved loading screen handling
+        function hideLoading() {
+            const loadingScreen = document.getElementById('loading');
+            if (loadingScreen) {
+                loadingScreen.classList.add('hidden');
+            }
+        }
+
+        // Multiple fallback methods to ensure loading screen disappears
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(hideLoading, 500);
+            });
+        } else {
+            setTimeout(hideLoading, 500);
+        }
+
+        window.addEventListener('load', function() {
+            setTimeout(hideLoading, 300);
+        });
+
+        // Emergency fallback - force hide after 3 seconds regardless
+        setTimeout(hideLoading, 3000);
+
+        // Smooth scrolling for navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    const name = dev.getAttribute("data-name");
-                    if(developerLinks[name]) {
-                        window.open(developerLinks[name], '_blank', 'noopener');
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
                     }
                 });
             });
+        });
 
-            // Show popup on load after 2s
-            setTimeout(() => {
-                document.querySelector('.subscribe-popup-bg').classList.add('active');
-            }, 2000);
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (header) {
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.boxShadow = 'none';
+                }
+            }
+        });
 
-            // Close popup
-            document.querySelectorAll('.close-btn').forEach(btn => {
-                btn.onclick = function() {
-                    document.querySelector('.subscribe-popup-bg').classList.remove('active');
+        // Map function
+        function openMap(location) {
+            const url = `https://www.google.com/maps/search/${encodeURIComponent(location + ' Dubai')}`;
+            window.open(url, '_blank');
+        }
+
+        // Developer website function
+        function openDeveloper(developer) {
+            const developerUrls = {
+                'emaar': 'https://www.emaar.com',
+                'nakheel': 'https://www.nakheel.com',
+                'meraas': 'https://www.meraas.com',
+                'sobha': 'https://www.sobharealty.com',
+                'damac': 'https://www.damacproperties.com',
+                'danube': 'https://danubeproperties.com',
+                'azizi': 'https://azizidevelopments.com',
+                'select': 'https://www.select-group.ae'
+            };
+            
+            if (developerUrls[developer]) {
+                window.open(developerUrls[developer], '_blank');
+            }
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
+        }, observerOptions);
 
-            // Google Sheets backend integration for subscribe
-            document.getElementById('subscribe-form').onsubmit = function(e) {
-                e.preventDefault();
-                fetch('https://sheetdb.io/api/v1/s2ug9xoasbjpn', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        data: {
-                            Name: document.getElementById('sub-name').value,
-                            Email: document.getElementById('sub-email').value,
-                            Contact: document.getElementById('sub-number').value
-                        }
-                    })
-                })
-                .then(res => res.json())
-                .then(() => {
-                    document.getElementById('subscribe-success').innerText = "Thank you for subscribing! You'll now get first access to all discounts.";
-                    setTimeout(function() {
-                        document.querySelector('.subscribe-popup-bg').classList.remove('active');
-                        document.querySelector('.consult-popup-mini').style.display = 'flex';
-                    }, 2000);
-                    document.getElementById('subscribe-form').reset();
-                })
-                .catch(() => {
-                    document.getElementById('subscribe-success').innerText = "There was an error. Please try again.";
+        // Initialize animations when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observe elements for animation
+            const animateElements = document.querySelectorAll('.benefit-card, .landmark-card, .developer-card');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+
+            // Add hover effects to stat items
+            const statItems = document.querySelectorAll('.stat-item');
+            statItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.transition = 'transform 0.3s ease';
                 });
-            };
-        };
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+
+            // Add click tracking for developer cards
+            const developerCards = document.querySelectorAll('.developer-card');
+            developerCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    console.log('Developer clicked:', this.querySelector('h3').textContent);
+                });
+            });
+        });
+
+        // Contact form handling
+        function handleContactForm(event) {
+            event.preventDefault();
+            alert('Thank you for your interest! We will contact you within 24 hours.');
+            return false;
+        }
+
+        // Investment calculator
+        function calculateROI(investment, yield_rate) {
+            return investment * (yield_rate / 100);
+        }
+
+        // Mobile menu toggle (for future implementation)
+        function toggleMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            if (navMenu) {
+                navMenu.classList.toggle('active');
+            }
+        }
+
+        // Performance optimization - preload critical resources
+        function preloadCriticalResources() {
+            const criticalUrls = [
+                'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'
+            ];
+            
+            criticalUrls.forEach(url => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'style';
+                link.href = url;
+                document.head.appendChild(link);
+            });
+        }
+
     </script>
-</head>
-<body>
-    <!-- Background Image -->
-    <img src="images/dubai-bg.jpg" class="bg-img" alt="">
-    <div class="overlay"></div>
-    <header>
-        <h1>Investing in Dubai Real Estate</h1>
-        <p>Discover Luxury Real Estate & Wonders</p>
-    </header>
-    <div class="container">
-        <!-- Benefits Section -->
-        <div class="benefits">
-            <h3>Why Invest in Dubai?</h3>
-            <ul class="benefits-list">
-                <li><i class="fas fa-money-bill-trend-up"></i> High Rental Returns & Capital Appreciation</li>
-                <li><i class="fas fa-coins"></i> Strong Cash Flow Opportunities</li>
-                <li><i class="fas fa-gem"></i> Unmatched Luxury Lifestyle & Amenities</li>
-                <li><i class="fas fa-passport"></i> Golden Visa for Investors</li>
-                <li><i class="fas fa-globe"></i> Safe, Tax-Free & Global City</li>
-                <li><i class="fas fa-building"></i> Modern Infrastructure & World-Class Developments</li>
-            </ul>
-        </div>
-
-        <!-- Comparison Chart -->
-        <div class="comparison-chart">
-            <h3>Dubai vs Other Countries - Investment Comparison</h3>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Dubai</th>
-                        <th>Other Countries</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Rental Yield</td>
-                        <td class="positive">Up to 8-12%</td>
-                        <td>3-5%</td>
-                    </tr>
-                    <tr>
-                        <td>Taxation</td>
-                        <td class="positive">No Property Tax</td>
-                        <td>Property Tax Applicable</td>
-                    </tr>
-                    <tr>
-                        <td>Golden Visa</td>
-                        <td class="positive">Available</td>
-                        <td>Limited/Not Available</td>
-                    </tr>
-                    <tr>
-                        <td>Lifestyle</td>
-                        <td class="positive">Luxurious & Modern</td>
-                        <td>Varies</td>
-                    </tr>
-                    <tr>
-                        <td>Safety</td>
-                        <td class="positive">Top Global Ranking</td>
-                        <td>Varies</td>
-                    </tr>
-                    <tr>
-                        <td>Investment Process</td>
-                        <td class="positive">Transparent & Fast</td>
-                        <td>Complex</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p><strong>Dubai always stands out for positive investment, lifestyle, and growth opportunities.</strong></p>
-        </div>
-
-        <!-- Dubai Wonders Section -->
-        <div class="locations">
-            <h3>Dubai Wonders & Experiences</h3>
-            <div class="locations-grid">
-                <!-- Burj Khalifa -->
-                <div class="location-card">
-                    <a href="https://www.google.com/maps?q=Burj+Khalifa" target="_blank" rel="noopener">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Burj_Khalifa.jpg" alt="Burj Khalifa">
-                    </a>
-                    <div class="caption">Burj Khalifa</div>
-                </div>
-                <!-- Burj Al Arab -->
-                <div class="location-card">
-                    <a href="https://www.google.com/maps?q=Burj+Al+Arab" target="_blank" rel="noopener">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Burj_Al_Arab_%28Dubai%29.jpg" alt="Burj Al Arab">
-                    </a>
-                    <div class="caption">Burj Al Arab</div>
-                </div>
-                <!-- Palm Jumeirah -->
-                <div class="location-card">
-                    <a href="https://www.google.com/maps?q=Palm+Jumeirah" target="_blank" rel="noopener">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Palm_Jumeirah_aerial_view.jpg" alt="Palm Jumeirah">
-                    </a>
-                    <div class="caption">Palm Jumeirah</div>
-                </div>
-                <!-- Dubai Downtown -->
-                <div class="location-card">
-                    <a href="https://www.google.com/maps?q=Dubai+Downtown" target="_blank" rel="noopener">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Dubai_Downtown_Skyline.jpg" alt="Dubai Downtown">
-                    </a>
-                    <div class="caption">Dubai Downtown</div>
-                </div>
-                <!-- La Mer -->
-                <div class="location-card">
-                    <a href="https://www.google.com/maps?q=La+Mer+Dubai" target="_blank" rel="noopener">
-                        <img src="https://images.unsplash.com/photo-1548784202-f7c4d3d1e6c7?auto=format&fit=crop&w=600&q=80" alt="La Mer Dubai">
-                    </a>
-                    <div class="caption">La Mer Dubai</div>
-                </div>
-                <!-- Dubai High Rise -->
-                <div class="location-card">
-                    <a href="https://www.google.com/maps?q=Dubai+Marina" target="_blank" rel="noopener">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Dubai_Marina_skyline_2015.jpg" alt="Dubai High Rise">
-                    </a>
-                    <div class="caption">Dubai High Rise</div>
-                </div>
-                <!-- Dubai Adventures -->
-                <div class="location-card">
-                    <a href="https://www.google.com/maps?q=Dubai+Desert" target="_blank" rel="noopener">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Dubai_Desert_Safari.jpg" alt="Dubai Adventures">
-                    </a>
-                    <div class="caption">Dubai Adventures</div>
-                </div>
-                <!-- Dubai Sports -->
-                <div class="location-card">
-                    <a href="https://www.google.com/maps?q=Dubai+Sports+City" target="_blank" rel="noopener">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Dubai_Sports_City.jpg" alt="Dubai Sports">
-                    </a>
-                    <div class="caption">Dubai Sports</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Developers Section -->
-        <div class="developers">
-            <h3>Top Dubai Developers (Click to visit official site)</h3>
-            <div class="dev-list">
-                <div class="dev" data-name="Emaar">
-                    <img src="https://logos-world.net/wp-content/uploads/2021/10/Emaar-Properties-Logo.png" alt="Emaar Logo">
-                    Emaar
-                </div>
-                <div class="dev" data-name="Nakheel">
-                    <img src="images/nakheel-logo.png" alt="Nakheel Logo">
-                    Nakheel
-                </div>
-                <div class="dev" data-name="Meraas">
-                    <img src="images/meraas-logo.png" alt="Meraas Logo">
-                    Meraas
-                </div>
-                <div class="dev" data-name="Sobha">
-                    <img src="images/sobha-logo.png" alt="Sobha Logo">
-                    Sobha
-                </div>
-                <div class="dev" data-name="BNW">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/No_image_available.png" alt="BNW Logo">
-                    BNW
-                </div>
-                <div class="dev" data-name="Danube">
-                    <img src="https://danubeproperties.com/sites/default/files/Danube%20Properties%20Logo.png" alt="Danube Logo">
-                    Danube
-                </div>
-                <div class="dev" data-name="Samana">
-                    <img src="https://samanadevelopers.com/wp-content/uploads/2021/03/samana-developers-logo.svg" alt="Samana Logo">
-                    Samana
-                </div>
-                <div class="dev" data-name="Damac">
-                    <img src="https://www.damacproperties.com/themes/damac/images/damac-logo.svg" alt="Damac Logo">
-                    Damac
-                </div>
-                <div class="dev" data-name="Select Group">
-                    <img src="https://www.select-group.ae/images/logo.svg" alt="Select Group Logo">
-                    Select Group
-                </div>
-                <div class="dev" data-name="Ellington">
-                    <img src="https://ellingtongroup.com/wp-content/themes/ellington/images/logo.svg" alt="Ellington Logo">
-                    Ellington
-                </div>
-                <div class="dev" data-name="MAG">
-                    <img src="https://mag.global/wp-content/uploads/2021/03/MAG-Logo.svg" alt="MAG Logo">
-                    MAG
-                </div>
-                <div class="dev" data-name="Azizi">
-                    <img src="https://azizidevelopments.com/wp-content/themes/azizi/assets/images/logo.svg" alt="Azizi Logo">
-                    Azizi
-                </div>
-                <div class="dev" data-name="Dubai Properties">
-                    <img src="https://www.dp.ae/themes/dp/images/logo.svg" alt="Dubai Properties Logo">
-                    Dubai Properties
-                </div>
-            </div>
-        </div>
-
-        <!-- Instagram Widget Section -->
-        <div class="instagram-widget">
-            <h3>Dubai Official Social Profiles</h3>
-            <div class="instagram-feeds">
-                <!-- Dubai Official Instagram -->
-                <div class="insta-profile">
-                    <a href="https://www.instagram.com/dubai/" target="_blank" rel="noopener">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Dubai_icon.png" alt="Dubai Official Profile">
-                    </a>
-                    <span>@dubai</span>
-                </div>
-                <!-- Faza Official Instagram -->
-                <div class="insta-profile">
-                    <a href="https://www.instagram.com/faz3/" target="_blank" rel="noopener">
-                        <img src="https://pbs.twimg.com/profile_images/1171280547245381632/nwHnD8Vs_400x400.jpg" alt="Faza Official Profile">
-                    </a>
-                    <span>@faz3</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Subscribe popup -->
-    <div class="subscribe-popup-bg">
-        <form class="subscribe-popup" id="subscribe-form" autocomplete="off">
-            <button type="button" class="close-btn" title="Close">&times;</button>
-            <h2>Be First to Grab Dubai Discounts!</h2>
-            <p>Subscribe now to get exclusive early access to the best deals & offers in Dubai real estate.</p>
-            <label for="sub-name">Name</label>
-            <input type="text" id="sub-name" name="name" required maxlength="60" placeholder="Your Name">
-            <label for="sub-email">Email</label>
-            <input type="email" id="sub-email" name="email" required maxlength="80" placeholder="you@email.com">
-            <label for="sub-number">Mobile Number</label>
-            <input type="tel" id="sub-number" name="number" pattern="[0-9\-\+ ]{6,18}" maxlength="18" required placeholder="Your Number">
-            <button type="submit">Subscribe Now</button>
-            <div class="subscribe-success" id="subscribe-success"></div>
-        </form>
-    </div>
-    <!-- Mini WhatsApp Consult Popup -->
-    <div class="consult-popup-mini" style="display:flex;">
-        <a class="consult-btn-mini" href="https://api.whatsapp.com/send/?phone=918266852055&text&type=phone_number&app_absent=0" target="_blank">
-            <i class="fab fa-whatsapp"></i> Consult with professional
-        </a>
-    </div>
 </body>
 </html>
