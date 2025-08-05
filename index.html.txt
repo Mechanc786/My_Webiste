@@ -12,7 +12,7 @@
       data[key] = value;
     });
 
-    fetch('https://sheetdb.io/api/v1/5kz0ym7vr2pb9', {  // ✅ FIXED here
+    fetch('https://sheetdb.io/api/v1/9ghcdx2pecwl8', {  // ✅ FIXED here
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -33,3 +33,4 @@
     });
   });
 </script>
+
