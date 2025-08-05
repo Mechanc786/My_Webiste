@@ -13,9 +13,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://investingindubairealestate.com">
     
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="LnSRvdM0OukKFyT5ax8sqtCoVAAm9zYqgJkCnULl2Yk" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         * {
@@ -34,6 +38,7 @@
             --gray-50: #f9fafb;
             --gray-100: #f3f4f6;
             --gray-900: #111827;
+            --whatsapp-green: #25d366;
         }
 
         body {
@@ -43,7 +48,7 @@
             overflow-x: hidden;
         }
 
-        /* Loading Animation - Fixed */
+        /* Loading Animation */
         .loading {
             position: fixed;
             top: 0;
@@ -101,10 +106,25 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-color);
             text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
         }
 
         .nav-menu {
@@ -124,6 +144,29 @@
             color: var(--primary-color);
         }
 
+        .nav-social {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .social-link {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+        }
+
         .cta-btn {
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
@@ -134,6 +177,7 @@
             cursor: pointer;
             text-decoration: none;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-left: 1rem;
         }
 
         .cta-btn:hover {
@@ -343,12 +387,26 @@
 
         .landmark-image {
             height: 200px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .landmark-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(201, 169, 110, 0.8), rgba(247, 147, 30, 0.8));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .landmark-card:hover .landmark-image::after {
+            opacity: 1;
         }
 
         .landmark-content {
@@ -391,15 +449,16 @@
         .developer-logo {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border-radius: 50%;
+            border-radius: 15px;
+            margin: 0 auto 1rem;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
-            color: white;
-            font-weight: 600;
-            font-size: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         /* CTA Section */
@@ -495,10 +554,172 @@
             color: #9ca3af;
         }
 
+        /* WhatsApp Widget */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .whatsapp-btn {
+            width: 60px;
+            height: 60px;
+            background: var(--whatsapp-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Subscriber Popup */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .popup-overlay.active .popup-content {
+            transform: scale(1);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .popup-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .popup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 0.75rem;
+            border: 2px solid var(--gray-100);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .phone-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .country-code {
+            flex: 0 0 100px;
+        }
+
+        .phone-number {
+            flex: 1;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
+            }
+
+            .nav-social {
+                gap: 0.5rem;
             }
 
             .hero h1 {
@@ -521,6 +742,16 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .whatsapp-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .popup-content {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -530,10 +761,58 @@
         <div class="spinner"></div>
     </div>
 
+    <!-- Subscriber Popup -->
+    <div class="popup-overlay" id="subscriberPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <div class="popup-title">🌟 Get Exclusive Dubai Real Estate Insights!</div>
+            <p>Subscribe to receive premium property listings, market updates, and investment opportunities directly in your inbox.</p>
+            <form class="popup-form" onsubmit="handleSubscription(event)">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Contact Number</label>
+                    <div class="phone-group">
+                        <select class="country-code" id="countryCode" name="countryCode">
+                            <option value="+91">🇮🇳 +91</option>
+                            <option value="+971">🇦🇪 +971</option>
+                            <option value="+1">🇺🇸 +1</option>
+                            <option value="+44">🇬🇧 +44</option>
+                            <option value="+61">🇦🇺 +61</option>
+                            <option value="+86">🇨🇳 +86</option>
+                            <option value="+81">🇯🇵 +81</option>
+                            <option value="+49">🇩🇪 +49</option>
+                            <option value="+33">🇫🇷 +33</option>
+                            <option value="+39">🇮🇹 +39</option>
+                        </select>
+                        <input type="tel" class="phone-number" id="phone" name="phone" placeholder="Your phone number" required>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Subscribe Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- WhatsApp Widget -->
+    <div class="whatsapp-widget">
+        <a href="https://wa.me/918266852055?text=Hi! I'm interested in Dubai real estate investment opportunities. Can you help me?" class="whatsapp-btn" target="_blank" title="Chat with our expert">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
-            <a href="#" class="logo">Dubai Real Estate</a>
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fas fa-building"></i></div>
+                Dubai Real Estate
+            </a>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#why-dubai">Why Dubai</a></li>
@@ -541,7 +820,15 @@
                 <li><a href="#developers">Developers</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#contact" class="cta-btn">Get Started</a>
+            <div class="nav-social">
+                <a href="https://www.linkedin.com/in/mohammad-hamza-ansari/" class="social-link" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/mohammadhamza_dxb/" class="social-link" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#contact" class="cta-btn">Get Started</a>
+            </div>
         </nav>
     </header>
 
@@ -663,42 +950,42 @@
     </section>
 
     <!-- Dubai Landmarks -->
-    <section class="landmarks">
+    <section class="landmarks" id="properties">
         <div class="container">
             <h2 class="section-title">Iconic Dubai Destinations</h2>
             <div class="landmarks-grid">
                 <div class="landmark-card" onclick="openMap('Burj Khalifa')">
-                    <div class="landmark-image">🏗️</div>
+                    <div class="landmark-image" style="background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
                     <div class="landmark-content">
                         <h3>Burj Khalifa</h3>
                     </div>
                 </div>
                 <div class="landmark-card" onclick="openMap('Burj Al Arab')">
-                    <div class="landmark-image">🏨</div>
+                    <div class="landmark-image" style="background-image: url('https://images.unsplash.com/photo-1539650116574-75c0c6d0d67a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
                     <div class="landmark-content">
                         <h3>Burj Al Arab</h3>
                     </div>
                 </div>
                 <div class="landmark-card" onclick="openMap('Palm Jumeirah')">
-                    <div class="landmark-image">🌴</div>
+                    <div class="landmark-image" style="background-image: url('https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
                     <div class="landmark-content">
                         <h3>Palm Jumeirah</h3>
                     </div>
                 </div>
                 <div class="landmark-card" onclick="openMap('Dubai Downtown')">
-                    <div class="landmark-image">🏙️</div>
+                    <div class="landmark-image" style="background-image: url('https://images.unsplash.com/photo-1580674684081-7617fbf3d745?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
                     <div class="landmark-content">
                         <h3>Dubai Downtown</h3>
                     </div>
                 </div>
                 <div class="landmark-card" onclick="openMap('Dubai Marina')">
-                    <div class="landmark-image">⛵</div>
+                    <div class="landmark-image" style="background-image: url('https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
                     <div class="landmark-content">
                         <h3>Dubai Marina</h3>
                     </div>
                 </div>
                 <div class="landmark-card" onclick="openMap('La Mer Dubai')">
-                    <div class="landmark-image">🏖️</div>
+                    <div class="landmark-image" style="background-image: url('https://images.unsplash.com/photo-1571419148894-4baaec0b1a84?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
                     <div class="landmark-content">
                         <h3>La Mer Dubai</h3>
                     </div>
@@ -713,35 +1000,35 @@
             <h2 class="section-title">Top Dubai Developers</h2>
             <div class="developers-grid">
                 <div class="developer-card" onclick="openDeveloper('emaar')">
-                    <div class="developer-logo">EM</div>
+                    <div class="developer-logo" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Emaar_Properties_logo.svg/320px-Emaar_Properties_logo.svg.png');"></div>
                     <h3>Emaar</h3>
                 </div>
                 <div class="developer-card" onclick="openDeveloper('nakheel')">
-                    <div class="developer-logo">NK</div>
+                    <div class="developer-logo" style="background-image: url('https://www.nakheel.com/-/media/Project/Nakheel/Website/images/nakheel-logo.png');"></div>
                     <h3>Nakheel</h3>
                 </div>
                 <div class="developer-card" onclick="openDeveloper('meraas')">
-                    <div class="developer-logo">MR</div>
+                    <div class="developer-logo" style="background-image: url('https://www.meraas.com/assets/meraas-logo.svg');"></div>
                     <h3>Meraas</h3>
                 </div>
                 <div class="developer-card" onclick="openDeveloper('sobha')">
-                    <div class="developer-logo">SB</div>
+                    <div class="developer-logo" style="background-image: url('https://www.sobharealty.com/assets/logo.png');"></div>
                     <h3>Sobha</h3>
                 </div>
                 <div class="developer-card" onclick="openDeveloper('damac')">
-                    <div class="developer-logo">DM</div>
+                    <div class="developer-logo" style="background-image: url('https://www.damacproperties.com/images/damac-logo.svg');"></div>
                     <h3>Damac</h3>
                 </div>
                 <div class="developer-card" onclick="openDeveloper('danube')">
-                    <div class="developer-logo">DB</div>
+                    <div class="developer-logo" style="background-image: url('https://danubeproperties.com/assets/logo.png');"></div>
                     <h3>Danube</h3>
                 </div>
                 <div class="developer-card" onclick="openDeveloper('azizi')">
-                    <div class="developer-logo">AZ</div>
+                    <div class="developer-logo" style="background-image: url('https://azizidevelopments.com/assets/logo.png');"></div>
                     <h3>Azizi</h3>
                 </div>
                 <div class="developer-card" onclick="openDeveloper('select')">
-                    <div class="developer-logo">SG</div>
+                    <div class="developer-logo" style="background-image: url('https://www.select-group.ae/assets/logo.png');"></div>
                     <h3>Select Group</h3>
                 </div>
             </div>
@@ -754,8 +1041,8 @@
             <h2>Ready to Start Your Dubai Investment Journey?</h2>
             <p>Join thousands of successful investors who chose Dubai for their real estate portfolio. Get expert guidance and exclusive property deals.</p>
             <div class="cta-buttons">
-                <a href="mailto:info@investingindubairealestate.com" class="btn-primary">Schedule Consultation</a>
-                <a href="tel:+971501234567" class="btn-secondary">Call Now</a>
+                <a href="mailto:hamzaa752@gmail.com" class="btn-primary">Schedule Consultation</a>
+                <a href="tel:+918266852055" class="btn-secondary">Call Now</a>
             </div>
         </div>
     </section>
@@ -765,9 +1052,13 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Contact Information</h3>
-                <p>📧 info@investingindubairealestate.com</p>
-                <p>📞 +971 50 123 4567</p>
-                <p>📍 Dubai, United Arab Emirates</p>
+                <p><i class="fas fa-envelope"></i> hamzaa752@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +91 8266852055</p>
+                <p><i class="fas fa-map-marker-alt"></i> Dubai, United Arab Emirates</p>
+                <div style="margin-top: 1rem;">
+                    <a href="https://www.linkedin.com/in/mohammad-hamza-ansari/" target="_blank" style="margin-right: 10px; color: var(--primary-color);"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://www.instagram.com/mohammadhamza_dxb/" target="_blank" style="color: var(--primary-color);"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
             </div>
             <div class="footer-section">
                 <h3>Services</h3>
@@ -797,6 +1088,43 @@
     </footer>
 
     <script>
+        // Show subscriber popup after 5 seconds
+        setTimeout(() => {
+            document.getElementById('subscriberPopup').classList.add('active');
+        }, 5000);
+
+        // Close popup function
+        function closePopup() {
+            document.getElementById('subscriberPopup').classList.remove('active');
+        }
+
+        // Handle subscription form
+        function handleSubscription(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const countryCode = formData.get('countryCode');
+            const phone = formData.get('phone');
+
+            // Here you would normally send the data to your server
+            console.log('Subscription data:', {
+                name,
+                email,
+                phone: countryCode + phone
+            });
+
+            alert(`Thank you ${name}! You've successfully subscribed to our Dubai Real Estate updates. We'll send you premium property listings and market insights soon.`);
+            closePopup();
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('subscriberPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+
         // Improved loading screen handling
         function hideLoading() {
             const loadingScreen = document.getElementById('loading');
@@ -958,6 +1286,20 @@
             });
         }
 
+        // WhatsApp Analytics
+        document.querySelector('.whatsapp-btn').addEventListener('click', function() {
+            console.log('WhatsApp consultation clicked');
+            // You can add analytics tracking here
+        });
+
+        // Popup show/hide on scroll
+        let hasShownPopup = false;
+        window.addEventListener('scroll', function() {
+            if (!hasShownPopup && window.scrollY > 1000) {
+                document.getElementById('subscriberPopup').classList.add('active');
+                hasShownPopup = true;
+            }
+        });
     </script>
 </body>
 </html>
