@@ -127,8 +127,8 @@
         /* Google Translate Styles */
         #google_translate_element {
             position: fixed;
-            top: 80px;
-            right: 20px;
+            top: 70px;
+            right: 10px;
             z-index: 1001;
             background: white;
             padding: 5px;
@@ -142,13 +142,14 @@
 
         .goog-te-gadget {
             font-family: 'Inter', sans-serif !important;
-            font-size: 12px !important;
+            font-size: 11px !important;
         }
 
         .goog-te-combo {
-            padding: 5px !important;
+            padding: 3px 5px !important;
             border: 1px solid var(--primary-color) !important;
             border-radius: 3px !important;
+            font-size: 11px !important;
         }
 
         /* Loading Animation */
@@ -174,8 +175,8 @@
         }
 
         .spinner {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border: 3px solid rgba(201, 169, 110, 0.3);
             border-top: 3px solid var(--primary-color);
             border-radius: 50%;
@@ -202,7 +203,7 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 0.75rem 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -212,34 +213,35 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary-color);
             text-decoration: none;
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border-radius: 8px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         .nav-menu {
-            display: flex;
+            display: none;
             list-style: none;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .nav-menu a {
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 500;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
         }
 
@@ -247,15 +249,76 @@
             color: var(--primary-color);
         }
 
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary-color);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 60px;
+            left: -100%;
+            width: 100%;
+            height: calc(100vh - 60px);
+            background: white;
+            transition: left 0.3s ease;
+            padding: 2rem 1rem;
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            left: 0;
+        }
+
+        .mobile-menu-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-menu-list a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--gray-100);
+            display: block;
+        }
+
         .nav-social {
             display: flex;
-            gap: 1rem;
+            gap: 0.5rem;
             align-items: center;
         }
 
         .social-link {
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             border-radius: 50%;
             display: flex;
@@ -264,6 +327,7 @@
             color: white;
             text-decoration: none;
             transition: transform 0.3s ease;
+            font-size: 0.8rem;
         }
 
         .social-link:hover {
@@ -273,19 +337,20 @@
         .cta-btn {
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
-            padding: 0.75rem 1.5rem;
+            padding: 0.5rem 1rem;
             border: none;
-            border-radius: 50px;
+            border-radius: 25px;
             font-weight: 600;
             cursor: pointer;
             text-decoration: none;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-left: 1rem;
+            font-size: 0.85rem;
+            display: none;
         }
 
         .cta-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(201, 169, 110, 0.3);
+            box-shadow: 0 5px 15px rgba(201, 169, 110, 0.3);
         }
 
         /* Hero Section */
@@ -294,12 +359,14 @@
                         url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             color: white;
-            padding: 8rem 2rem 6rem;
+            padding: 6rem 1rem 4rem;
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
         .hero::before {
@@ -318,56 +385,59 @@
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            width: 100%;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             background: linear-gradient(135deg, #ffffff, var(--primary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+            line-height: 1.6;
         }
 
         .hero-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 3rem;
         }
 
         .stat-item {
             text-align: center;
-            padding: 1.5rem;
+            padding: 1rem;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
+            border-radius: 12px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(201, 169, 110, 0.2);
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary-color);
             display: block;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             opacity: 0.8;
             margin-top: 0.5rem;
         }
 
         /* Why Dubai Section */
         .why-dubai {
-            padding: 6rem 2rem;
+            padding: 4rem 1rem;
             background: var(--gray-50);
         }
 
@@ -378,77 +448,87 @@
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             color: var(--text-dark);
+            line-height: 1.3;
         }
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
         .benefit-card {
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-left: 4px solid var(--primary-color);
         }
 
         .benefit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         .benefit-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
 
         .benefit-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             color: var(--text-dark);
+        }
+
+        .benefit-card p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--text-light);
         }
 
         /* Comparison Table */
         .comparison {
-            padding: 6rem 2rem;
+            padding: 4rem 1rem;
             background: white;
         }
 
         .comparison-table {
-            max-width: 800px;
+            max-width: 100%;
             margin: 0 auto;
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
         }
 
         .comparison-table table {
             width: 100%;
             border-collapse: collapse;
+            min-width: 600px;
         }
 
         .comparison-table th,
         .comparison-table td {
-            padding: 1.5rem;
+            padding: 1rem;
             text-align: left;
             border-bottom: 1px solid var(--gray-100);
+            font-size: 0.9rem;
         }
 
         .comparison-table th {
@@ -468,32 +548,32 @@
 
         /* Dubai Landmarks */
         .landmarks {
-            padding: 6rem 2rem;
+            padding: 4rem 1rem;
             background: var(--gray-50);
         }
 
         .landmarks-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         .landmark-card {
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             cursor: pointer;
         }
 
         .landmark-card:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .landmark-image {
-            height: 200px;
+            height: 180px;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -517,31 +597,38 @@
         }
 
         .landmark-content {
-            padding: 1.5rem;
+            padding: 1.25rem;
             text-align: center;
         }
 
         .landmark-content h3 {
             font-weight: 600;
             color: var(--text-dark);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .landmark-content p {
+            font-size: 0.85rem;
+            color: var(--text-light);
         }
 
         /* Developers Section */
         .developers {
-            padding: 6rem 2rem;
+            padding: 4rem 1rem;
             background: white;
         }
 
         .developers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .developer-card {
             background: var(--gray-50);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 15px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -549,14 +636,14 @@
         }
 
         .developer-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
         .developer-logo {
-            width: 80px;
-            height: 80px;
-            border-radius: 15px;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
             margin: 0 auto 1rem;
             background-size: contain;
             background-position: center;
@@ -565,7 +652,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .developer-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .developer-card p {
+            font-size: 0.8rem;
+            color: var(--text-light);
         }
 
         /* CTA Section */
@@ -574,38 +672,43 @@
                         url('https://images.unsplash.com/photo-1580674684081-7617fbf3d745?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             color: white;
-            padding: 6rem 2rem;
+            padding: 4rem 1rem;
             text-align: center;
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
+            line-height: 1.3;
         }
 
         .cta-section p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+            line-height: 1.5;
         }
 
         .cta-buttons {
             display: flex;
+            flex-direction: column;
             gap: 1rem;
             justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
         }
 
         .btn-primary,
         .btn-secondary {
-            padding: 1rem 2rem;
+            padding: 0.875rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             display: inline-block;
+            width: 100%;
+            max-width: 300px;
+            font-size: 0.9rem;
         }
 
         .btn-primary {
@@ -622,27 +725,28 @@
         .btn-primary:hover,
         .btn-secondary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* Footer */
         .footer {
             background: var(--gray-900);
             color: white;
-            padding: 3rem 2rem 2rem;
+            padding: 3rem 1rem 2rem;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
         }
 
         .footer-section h3 {
             margin-bottom: 1rem;
             color: var(--primary-color);
+            font-size: 1.1rem;
         }
 
         .footer-section p,
@@ -651,6 +755,7 @@
             text-decoration: none;
             margin-bottom: 0.5rem;
             display: block;
+            font-size: 0.9rem;
         }
 
         .footer-section a:hover {
@@ -663,6 +768,7 @@
             padding-top: 2rem;
             text-align: center;
             color: #9ca3af;
+            font-size: 0.85rem;
         }
 
         /* WhatsApp Widget */
@@ -674,24 +780,24 @@
         }
 
         .whatsapp-btn {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: var(--whatsapp-green);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             text-decoration: none;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 3px 10px rgba(37, 211, 102, 0.4);
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
         }
 
         .whatsapp-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.6);
         }
 
         @keyframes pulse {
@@ -699,7 +805,7 @@
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
             }
             70% {
-                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+                box-shadow: 0 0 0 8px rgba(37, 211, 102, 0);
             }
             100% {
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
@@ -721,6 +827,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
+            padding: 1rem;
         }
 
         .popup-overlay.active {
@@ -731,13 +838,15 @@
         .popup-content {
             background: white;
             border-radius: 20px;
-            padding: 2rem;
+            padding: 1.5rem;
             max-width: 400px;
-            width: 90%;
+            width: 100%;
             text-align: center;
             transform: scale(0.8);
             transition: transform 0.3s ease;
             position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .popup-overlay.active .popup-content {
@@ -756,7 +865,7 @@
         }
 
         .popup-title {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 1rem;
@@ -779,6 +888,7 @@
             font-weight: 500;
             margin-bottom: 0.5rem;
             color: var(--text-dark);
+            font-size: 0.9rem;
         }
 
         .form-group input,
@@ -786,7 +896,7 @@
             padding: 0.75rem;
             border: 2px solid var(--gray-100);
             border-radius: 10px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: border-color 0.3s ease;
         }
 
@@ -802,7 +912,8 @@
         }
 
         .country-code {
-            flex: 0 0 120px;
+            flex: 0 0 100px;
+            font-size: 0.8rem;
         }
 
         .phone-number {
@@ -818,6 +929,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: transform 0.3s ease;
+            font-size: 0.9rem;
         }
 
         .submit-btn:hover {
@@ -832,79 +944,12 @@
         #response-msg {
             margin-top: 1rem;
             font-weight: 500;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .nav-social {
-                gap: 0.5rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .hero-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .whatsapp-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-
-            .popup-content {
-                padding: 1.5rem;
-            }
-
-            #google_translate_element {
-                top: 60px;
-                right: 10px;
-            }
-        }
-
-        /* SEO Enhancement Styles */
-        .breadcrumb {
-            background: var(--gray-100);
-            padding: 1rem 2rem;
-            margin-top: 80px;
-        }
-
-        .breadcrumb-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .breadcrumb a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
+            font-size: 0.9rem;
         }
 
         /* FAQ Section */
         .faq-section {
-            padding: 6rem 2rem;
+            padding: 4rem 1rem;
             background: white;
         }
 
@@ -923,20 +968,23 @@
             border: none;
             width: 100%;
             text-align: left;
-            padding: 1.5rem 0;
-            font-size: 1.1rem;
+            padding: 1.25rem 0;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--text-dark);
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            line-height: 1.4;
         }
 
         .faq-answer {
-            padding: 0 0 1.5rem 0;
+            padding: 0 0 1.25rem 0;
             color: var(--text-light);
             display: none;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         .faq-answer.active {
@@ -945,10 +993,247 @@
 
         .faq-icon {
             transition: transform 0.3s ease;
+            font-size: 0.8rem;
+            margin-left: 1rem;
+            flex-shrink: 0;
         }
 
         .faq-item.active .faq-icon {
             transform: rotate(180deg);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: var(--gray-100);
+            padding: 0.75rem 1rem;
+            margin-top: 60px;
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 0.85rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Tablet Responsive */
+        @media (min-width: 576px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: row;
+                gap: 1rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: auto;
+                min-width: 200px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Desktop Responsive */
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: none;
+            }
+
+            .cta-btn {
+                display: inline-block;
+            }
+
+            .hero {
+                padding: 8rem 2rem 6rem;
+            }
+
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .why-dubai,
+            .comparison,
+            .landmarks,
+            .developers,
+            .faq-section {
+                padding: 6rem 2rem;
+            }
+
+            .cta-section {
+                padding: 6rem 2rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .landmarks-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .developers-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .whatsapp-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            #google_translate_element {
+                top: 80px;
+                right: 20px;
+            }
+
+            .popup-content {
+                padding: 2rem;
+            }
+
+            .popup-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1024px) {
+            .nav-container {
+                padding: 1rem 2rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .social-link {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+
+            .benefit-card {
+                padding: 2rem;
+            }
+
+            .benefit-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .benefit-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .benefit-card p {
+                font-size: 1rem;
+            }
+
+            .landmark-image {
+                height: 200px;
+            }
+
+            .developer-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .developer-card {
+                padding: 2rem;
+            }
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .benefit-card:hover,
+            .landmark-card:hover,
+            .developer-card:hover {
+                transform: none;
+            }
+
+            .btn-primary:hover,
+            .btn-secondary:hover,
+            .cta-btn:hover,
+            .social-link:hover,
+            .whatsapp-btn:hover {
+                transform: none;
+            }
+        }
+
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .hero,
+            .cta-section {
+                background-attachment: scroll;
+            }
         }
     </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7436361918950296"
@@ -981,234 +1266,24 @@
                     <label for="phone">Contact Number</label>
                     <div class="phone-group">
                         <select class="country-code" id="countryCode" name="countryCode">
-                            <option value="+93">🇦🇫 +93 Afghanistan</option>
-                            <option value="+355">🇦🇱 +355 Albania</option>
-                            <option value="+213">🇩🇿 +213 Algeria</option>
-                            <option value="+1684">🇦🇸 +1684 American Samoa</option>
-                            <option value="+376">🇦🇩 +376 Andorra</option>
-                            <option value="+244">🇦🇴 +244 Angola</option>
-                            <option value="+1264">🇦🇮 +1264 Anguilla</option>
-                            <option value="+1268">🇦🇬 +1268 Antigua and Barbuda</option>
-                            <option value="+54">🇦🇷 +54 Argentina</option>
-                            <option value="+374">🇦🇲 +374 Armenia</option>
-                            <option value="+297">🇦🇼 +297 Aruba</option>
-                            <option value="+61">🇦🇺 +61 Australia</option>
-                            <option value="+43">🇦🇹 +43 Austria</option>
-                            <option value="+994">🇦🇿 +994 Azerbaijan</option>
-                            <option value="+1242">🇧🇸 +1242 Bahamas</option>
-                            <option value="+973">🇧🇭 +973 Bahrain</option>
-                            <option value="+880">🇧🇩 +880 Bangladesh</option>
-                            <option value="+1246">🇧🇧 +1246 Barbados</option>
-                            <option value="+375">🇧🇾 +375 Belarus</option>
-                            <option value="+32">🇧🇪 +32 Belgium</option>
-                            <option value="+501">🇧🇿 +501 Belize</option>
-                            <option value="+229">🇧🇯 +229 Benin</option>
-                            <option value="+1441">🇧🇲 +1441 Bermuda</option>
-                            <option value="+975">🇧🇹 +975 Bhutan</option>
-                            <option value="+591">🇧🇴 +591 Bolivia</option>
-                            <option value="+387">🇧🇦 +387 Bosnia and Herzegovina</option>
-                            <option value="+267">🇧🇼 +267 Botswana</option>
-                            <option value="+55">🇧🇷 +55 Brazil</option>
-                            <option value="+673">🇧🇳 +673 Brunei</option>
-                            <option value="+359">🇧🇬 +359 Bulgaria</option>
-                            <option value="+226">🇧🇫 +226 Burkina Faso</option>
-                            <option value="+257">🇧🇮 +257 Burundi</option>
-                            <option value="+855">🇰🇭 +855 Cambodia</option>
-                            <option value="+237">🇨🇲 +237 Cameroon</option>
-                            <option value="+1">🇨🇦 +1 Canada</option>
-                            <option value="+238">🇨🇻 +238 Cape Verde</option>
-                            <option value="+1345">🇰🇾 +1345 Cayman Islands</option>
-                            <option value="+236">🇨🇫 +236 Central African Republic</option>
-                            <option value="+235">🇹🇩 +235 Chad</option>
-                            <option value="+56">🇨🇱 +56 Chile</option>
-                            <option value="+86">🇨🇳 +86 China</option>
-                            <option value="+57">🇨🇴 +57 Colombia</option>
-                            <option value="+269">🇰🇲 +269 Comoros</option>
-                            <option value="+242">🇨🇬 +242 Congo</option>
-                            <option value="+243">🇨🇩 +243 Congo (DRC)</option>
-                            <option value="+682">🇨🇰 +682 Cook Islands</option>
-                            <option value="+506">🇨🇷 +506 Costa Rica</option>
-                            <option value="+225">🇨🇮 +225 Côte d'Ivoire</option>
-                            <option value="+385">🇭🇷 +385 Croatia</option>
-                            <option value="+53">🇨🇺 +53 Cuba</option>
-                            <option value="+357">🇨🇾 +357 Cyprus</option>
-                            <option value="+420">🇨🇿 +420 Czech Republic</option>
-                            <option value="+45">🇩🇰 +45 Denmark</option>
-                            <option value="+253">🇩🇯 +253 Djibouti</option>
-                            <option value="+1767">🇩🇲 +1767 Dominica</option>
-                            <option value="+1809">🇩🇴 +1809 Dominican Republic</option>
-                            <option value="+593">🇪🇨 +593 Ecuador</option>
-                            <option value="+20">🇪🇬 +20 Egypt</option>
-                            <option value="+503">🇸🇻 +503 El Salvador</option>
-                            <option value="+240">🇬🇶 +240 Equatorial Guinea</option>
-                            <option value="+291">🇪🇷 +291 Eritrea</option>
-                            <option value="+372">🇪🇪 +372 Estonia</option>
-                            <option value="+251">🇪🇹 +251 Ethiopia</option>
-                            <option value="+500">🇫🇰 +500 Falkland Islands</option>
-                            <option value="+298">🇫🇴 +298 Faroe Islands</option>
-                            <option value="+679">🇫🇯 +679 Fiji</option>
-                            <option value="+358">🇫🇮 +358 Finland</option>
-                            <option value="+33">🇫🇷 +33 France</option>
-                            <option value="+594">🇬🇫 +594 French Guiana</option>
-                            <option value="+689">🇵🇫 +689 French Polynesia</option>
-                            <option value="+241">🇬🇦 +241 Gabon</option>
-                            <option value="+220">🇬🇲 +220 Gambia</option>
-                            <option value="+995">🇬🇪 +995 Georgia</option>
-                            <option value="+49">🇩🇪 +49 Germany</option>
-                            <option value="+233">🇬🇭 +233 Ghana</option>
-                            <option value="+350">🇬🇮 +350 Gibraltar</option>
-                            <option value="+30">🇬🇷 +30 Greece</option>
-                            <option value="+299">🇬🇱 +299 Greenland</option>
-                            <option value="+1473">🇬🇩 +1473 Grenada</option>
-                            <option value="+590">🇬🇵 +590 Guadeloupe</option>
-                            <option value="+1671">🇬🇺 +1671 Guam</option>
-                            <option value="+502">🇬🇹 +502 Guatemala</option>
-                            <option value="+224">🇬🇳 +224 Guinea</option>
-                            <option value="+245">🇬🇼 +245 Guinea-Bissau</option>
-                            <option value="+592">🇬🇾 +592 Guyana</option>
-                            <option value="+509">🇭🇹 +509 Haiti</option>
-                            <option value="+504">🇭🇳 +504 Honduras</option>
-                            <option value="+852">🇭🇰 +852 Hong Kong</option>
-                            <option value="+36">🇭🇺 +36 Hungary</option>
-                            <option value="+354">🇮🇸 +354 Iceland</option>
-                            <option value="+91" selected>🇮🇳 +91 India</option>
-                            <option value="+62">🇮🇩 +62 Indonesia</option>
-                            <option value="+98">🇮🇷 +98 Iran</option>
-                            <option value="+964">🇮🇶 +964 Iraq</option>
-                            <option value="+353">🇮🇪 +353 Ireland</option>
-                            <option value="+972">🇮🇱 +972 Israel</option>
-                            <option value="+39">🇮🇹 +39 Italy</option>
-                            <option value="+1876">🇯🇲 +1876 Jamaica</option>
-                            <option value="+81">🇯🇵 +81 Japan</option>
-                            <option value="+962">🇯🇴 +962 Jordan</option>
-                            <option value="+7">🇰🇿 +7 Kazakhstan</option>
-                            <option value="+254">🇰🇪 +254 Kenya</option>
-                            <option value="+686">🇰🇮 +686 Kiribati</option>
-                            <option value="+850">🇰🇵 +850 North Korea</option>
-                            <option value="+82">🇰🇷 +82 South Korea</option>
-                            <option value="+965">🇰🇼 +965 Kuwait</option>
-                            <option value="+996">🇰🇬 +996 Kyrgyzstan</option>
-                            <option value="+856">🇱🇦 +856 Laos</option>
-                            <option value="+371">🇱🇻 +371 Latvia</option>
-                            <option value="+961">🇱🇧 +961 Lebanon</option>
-                            <option value="+266">🇱🇸 +266 Lesotho</option>
-                            <option value="+231">🇱🇷 +231 Liberia</option>
-                            <option value="+218">🇱🇾 +218 Libya</option>
-                            <option value="+423">🇱🇮 +423 Liechtenstein</option>
-                            <option value="+370">🇱🇹 +370 Lithuania</option>
-                            <option value="+352">🇱🇺 +352 Luxembourg</option>
-                            <option value="+853">🇲🇴 +853 Macau</option>
-                            <option value="+389">🇲🇰 +389 Macedonia</option>
-                            <option value="+261">🇲🇬 +261 Madagascar</option>
-                            <option value="+265">🇲🇼 +265 Malawi</option>
-                            <option value="+60">🇲🇾 +60 Malaysia</option>
-                            <option value="+960">🇲🇻 +960 Maldives</option>
-                            <option value="+223">🇲🇱 +223 Mali</option>
-                            <option value="+356">🇲🇹 +356 Malta</option>
-                            <option value="+692">🇲🇭 +692 Marshall Islands</option>
-                            <option value="+596">🇲🇶 +596 Martinique</option>
-                            <option value="+222">🇲🇷 +222 Mauritania</option>
-                            <option value="+230">🇲🇺 +230 Mauritius</option>
-                            <option value="+262">🇾🇹 +262 Mayotte</option>
-                            <option value="+52">🇲🇽 +52 Mexico</option>
-                            <option value="+691">🇫🇲 +691 Micronesia</option>
-                            <option value="+373">🇲🇩 +373 Moldova</option>
-                            <option value="+377">🇲🇨 +377 Monaco</option>
-                            <option value="+976">🇲🇳 +976 Mongolia</option>
-                            <option value="+382">🇲🇪 +382 Montenegro</option>
-                            <option value="+1664">🇲🇸 +1664 Montserrat</option>
-                            <option value="+212">🇲🇦 +212 Morocco</option>
-                            <option value="+258">🇲🇿 +258 Mozambique</option>
-                            <option value="+95">🇲🇲 +95 Myanmar</option>
-                            <option value="+264">🇳🇦 +264 Namibia</option>
-                            <option value="+674">🇳🇷 +674 Nauru</option>
-                            <option value="+977">🇳🇵 +977 Nepal</option>
-                            <option value="+31">🇳🇱 +31 Netherlands</option>
-                            <option value="+687">🇳🇨 +687 New Caledonia</option>
-                            <option value="+64">🇳🇿 +64 New Zealand</option>
-                            <option value="+505">🇳🇮 +505 Nicaragua</option>
-                            <option value="+227">🇳🇪 +227 Niger</option>
-                            <option value="+234">🇳🇬 +234 Nigeria</option>
-                            <option value="+683">🇳🇺 +683 Niue</option>
-                            <option value="+672">🇳🇫 +672 Norfolk Island</option>
-                            <option value="+1670">🇲🇵 +1670 Northern Mariana Islands</option>
-                            <option value="+47">🇳🇴 +47 Norway</option>
-                            <option value="+968">🇴🇲 +968 Oman</option>
-                            <option value="+92">🇵🇰 +92 Pakistan</option>
-                            <option value="+680">🇵🇼 +680 Palau</option>
-                            <option value="+970">🇵🇸 +970 Palestine</option>
-                            <option value="+507">🇵🇦 +507 Panama</option>
-                            <option value="+675">🇵🇬 +675 Papua New Guinea</option>
-                            <option value="+595">🇵🇾 +595 Paraguay</option>
-                            <option value="+51">🇵🇪 +51 Peru</option>
-                            <option value="+63">🇵🇭 +63 Philippines</option>
-                            <option value="+48">🇵🇱 +48 Poland</option>
-                            <option value="+351">🇵🇹 +351 Portugal</option>
-                            <option value="+1787">🇵🇷 +1787 Puerto Rico</option>
-                            <option value="+974">🇶🇦 +974 Qatar</option>
-                            <option value="+262">🇷🇪 +262 Réunion</option>
-                            <option value="+40">🇷🇴 +40 Romania</option>
-                            <option value="+7">🇷🇺 +7 Russia</option>
-                            <option value="+250">🇷🇼 +250 Rwanda</option>
-                            <option value="+290">🇸🇭 +290 Saint Helena</option>
-                            <option value="+1869">🇰🇳 +1869 Saint Kitts and Nevis</option>
-                            <option value="+1758">🇱🇨 +1758 Saint Lucia</option>
-                            <option value="+508">🇵🇲 +508 Saint Pierre and Miquelon</option>
-                            <option value="+1784">🇻🇨 +1784 Saint Vincent and the Grenadines</option>
-                            <option value="+685">🇼🇸 +685 Samoa</option>
-                            <option value="+378">🇸🇲 +378 San Marino</option>
-                            <option value="+239">🇸🇹 +239 São Tomé and Príncipe</option>
-                            <option value="+966">🇸🇦 +966 Saudi Arabia</option>
-                            <option value="+221">🇸🇳 +221 Senegal</option>
-                            <option value="+381">🇷🇸 +381 Serbia</option>
-                            <option value="+248">🇸🇨 +248 Seychelles</option>
-                            <option value="+232">🇸🇱 +232 Sierra Leone</option>
-                            <option value="+65">🇸🇬 +65 Singapore</option>
-                            <option value="+421">🇸🇰 +421 Slovakia</option>
-                            <option value="+386">🇸🇮 +386 Slovenia</option>
-                            <option value="+677">🇸🇧 +677 Solomon Islands</option>
-                            <option value="+252">🇸🇴 +252 Somalia</option>
-                            <option value="+27">🇿🇦 +27 South Africa</option>
-                            <option value="+34">🇪🇸 +34 Spain</option>
-                            <option value="+94">🇱🇰 +94 Sri Lanka</option>
-                            <option value="+249">🇸🇩 +249 Sudan</option>
-                            <option value="+597">🇸🇷 +597 Suriname</option>
-                            <option value="+268">🇸🇿 +268 Eswatini</option>
-                            <option value="+46">🇸🇪 +46 Sweden</option>
-                            <option value="+41">🇨🇭 +41 Switzerland</option>
-                            <option value="+963">🇸🇾 +963 Syria</option>
-                            <option value="+886">🇹🇼 +886 Taiwan</option>
-                            <option value="+992">🇹🇯 +992 Tajikistan</option>
-                            <option value="+255">🇹🇿 +255 Tanzania</option>
-                            <option value="+66">🇹🇭 +66 Thailand</option>
-                            <option value="+670">🇹🇱 +670 Timor-Leste</option>
-                            <option value="+228">🇹🇬 +228 Togo</option>
-                            <option value="+690">🇹🇰 +690 Tokelau</option>
-                            <option value="+676">🇹🇴 +676 Tonga</option>
-                            <option value="+1868">🇹🇹 +1868 Trinidad and Tobago</option>
-                            <option value="+216">🇹🇳 +216 Tunisia</option>
-                            <option value="+90">🇹🇷 +90 Turkey</option>
-                            <option value="+993">🇹🇲 +993 Turkmenistan</option>
-                            <option value="+1649">🇹🇨 +1649 Turks and Caicos Islands</option>
-                            <option value="+688">🇹🇻 +688 Tuvalu</option>
-                            <option value="+256">🇺🇬 +256 Uganda</option>
-                            <option value="+380">🇺🇦 +380 Ukraine</option>
-                            <option value="+971">🇦🇪 +971 UAE</option>
-                            <option value="+44">🇬🇧 +44 United Kingdom</option>
-                            <option value="+1">🇺🇸 +1 United States</option>
-                            <option value="+598">🇺🇾 +598 Uruguay</option>
-                            <option value="+998">🇺🇿 +998 Uzbekistan</option>
-                            <option value="+678">🇻🇺 +678 Vanuatu</option>
-                            <option value="+379">🇻🇦 +379 Vatican City</option>
-                            <option value="+58">🇻🇪 +58 Venezuela</option>
-                            <option value="+84">🇻🇳 +84 Vietnam</option>
-                            <option value="+1284">🇻🇬 +1284 British Virgin Islands</option>
-                            <option value="+1340">🇻🇮 +1340 U.S. Virgin Islands</option>
-                            <option value="+681">🇼🇫 +681 Wallis and Futuna</option>
-                            <option value="+212">🇪🇭 +212 Western Sahara</option>
-                            <option value="+967">🇾🇪 +967 Yemen</option>
-                            <option value="+260">🇿🇲 +260 Zambia</option>
-                            <option value="+263">🇿🇼 +263 Zimbabwe</option>
+                            <option value="+1">🇺🇸 +1</option>
+                            <option value="+44">🇬🇧 +44</option>
+                            <option value="+91" selected>🇮🇳 +91</option>
+                            <option value="+971">🇦🇪 +971</option>
+                            <option value="+966">🇸🇦 +966</option>
+                            <option value="+92">🇵🇰 +92</option>
+                            <option value="+880">🇧🇩 +880</option>
+                            <option value="+94">🇱🇰 +94</option>
+                            <option value="+977">🇳🇵 +977</option>
+                            <option value="+33">🇫🇷 +33</option>
+                            <option value="+49">🇩🇪 +49</option>
+                            <option value="+39">🇮🇹 +39</option>
+                            <option value="+34">🇪🇸 +34</option>
+                            <option value="+86">🇨🇳 +86</option>
+                            <option value="+81">🇯🇵 +81</option>
+                            <option value="+82">🇰🇷 +82</option>
+                            <option value="+61">🇦🇺 +61</option>
+                            <option value="+1">🇨🇦 +1</option>
                         </select>
                         <input type="tel" class="phone-number" id="phone" name="phone" placeholder="Your phone number" required>
                     </div>
@@ -1233,6 +1308,8 @@
                 <div class="logo-icon"><i class="fas fa-building"></i></div>
                 Dubai Real Estate
             </a>
+            
+            <!-- Desktop Menu -->
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#why-dubai">Why Dubai</a></li>
@@ -1241,6 +1318,7 @@
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            
             <div class="nav-social">
                 <a href="https://www.linkedin.com/in/mohammad-hamza-ansari/" class="social-link" target="_blank" title="LinkedIn - Dubai Real Estate Expert">
                     <i class="fab fa-linkedin-in"></i>
@@ -1249,8 +1327,29 @@
                     <i class="fab fa-instagram"></i>
                 </a>
                 <a href="#contact" class="cta-btn">Get Started</a>
+                
+                <!-- Mobile Menu Toggle -->
+                <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-menu-list">
+                <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="#why-dubai" onclick="closeMobileMenu()">Why Dubai</a></li>
+                <li><a href="#properties" onclick="closeMobileMenu()">Properties</a></li>
+                <li><a href="#developers" onclick="closeMobileMenu()">Developers</a></li>
+                <li><a href="#faq" onclick="closeMobileMenu()">FAQ</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+                <li><a href="mailto:hamzaa752@gmail.com" onclick="closeMobileMenu()">Email Us</a></li>
+                <li><a href="tel:+918266852055" onclick="closeMobileMenu()">Call Now</a></li>
+            </ul>
+        </div>
     </header>
 
     <!-- Breadcrumb -->
@@ -1676,6 +1775,31 @@
             });
         });
 
+        // Mobile menu functions
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const toggleBtn = document.querySelector('.mobile-menu-toggle');
+            
+            mobileMenu.classList.toggle('active');
+            toggleBtn.classList.toggle('active');
+            
+            // Prevent body scrolling when menu is open
+            if (mobileMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const toggleBtn = document.querySelector('.mobile-menu-toggle');
+            
+            mobileMenu.classList.remove('active');
+            toggleBtn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
         // Show subscriber popup after 10 seconds
         setTimeout(() => {
             if (!localStorage.getItem('subscriberPopupShown')) {
@@ -1696,19 +1820,20 @@
             }
         });
 
-        // Loading screen handling
+        // Loading screen handling with multiple fallbacks
         function hideLoading() {
             const loadingScreen = document.getElementById('loading');
             if (loadingScreen) {
                 loadingScreen.classList.add('hidden');
-                // Remove from DOM after animation
                 setTimeout(() => {
-                    loadingScreen.remove();
+                    if (loadingScreen.parentNode) {
+                        loadingScreen.remove();
+                    }
                 }, 500);
             }
         }
 
-        // Multiple fallback methods to ensure loading screen disappears
+        // Multiple loading screen removal methods
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(hideLoading, 800);
@@ -1724,35 +1849,52 @@
         // Emergency fallback
         setTimeout(hideLoading, 3000);
 
-        // Smooth scrolling for navigation links
+        // Enhanced smooth scrolling for mobile
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
                         });
                     }
                 });
             });
         });
 
-        // Header scroll effect
+        // Enhanced header scroll effect
+        let lastScrollTop = 0;
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
+            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
             if (header) {
-                if (window.scrollY > 100) {
+                if (currentScrollTop > 100) {
                     header.style.background = 'rgba(255, 255, 255, 0.98)';
                     header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
                 } else {
                     header.style.background = 'rgba(255, 255, 255, 0.95)';
                     header.style.boxShadow = 'none';
                 }
+                
+                // Hide header on scroll down, show on scroll up (mobile)
+                if (window.innerWidth <= 768) {
+                    if (currentScrollTop > lastScrollTop && currentScrollTop > 200) {
+                        header.style.transform = 'translateY(-100%)';
+                    } else {
+                        header.style.transform = 'translateY(0)';
+                    }
+                }
             }
-        });
+            
+            lastScrollTop = currentScrollTop;
+        }, false);
 
         // Map function for Dubai locations
         function openMap(location) {
@@ -1778,7 +1920,7 @@
             }
         }
 
-        // FAQ Toggle Function
+        // Enhanced FAQ Toggle Function
         function toggleFAQ(button) {
             const faqItem = button.parentElement;
             const answer = faqItem.querySelector('.faq-answer');
@@ -1788,7 +1930,10 @@
             document.querySelectorAll('.faq-item').forEach(item => {
                 if (item !== faqItem) {
                     item.classList.remove('active');
-                    item.querySelector('.faq-answer').style.display = 'none';
+                    const otherAnswer = item.querySelector('.faq-answer');
+                    if (otherAnswer) {
+                        otherAnswer.style.display = 'none';
+                    }
                 }
             });
             
@@ -1801,10 +1946,10 @@
             }
         }
 
-        // Intersection Observer for animations
+        // Enhanced Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -30px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -1822,58 +1967,134 @@
             const animateElements = document.querySelectorAll('.benefit-card, .landmark-card, .developer-card, .faq-item');
             animateElements.forEach(el => {
                 el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
+                el.style.transform = 'translateY(20px)';
                 el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(el);
             });
 
-            // Add hover effects to stat items
+            // Add touch-friendly stat item interactions
             const statItems = document.querySelectorAll('.stat-item');
             statItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.05)';
-                    this.style.transition = 'transform 0.3s ease';
+                item.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(1.03)';
+                    this.style.transition = 'transform 0.2s ease';
                 });
                 
-                item.addEventListener('mouseleave', function() {
+                item.addEventListener('touchend', function() {
                     this.style.transform = 'scale(1)';
                 });
             });
         });
 
-        // WhatsApp Analytics
-        document.querySelector('.whatsapp-btn').addEventListener('click', function() {
-            console.log('WhatsApp Dubai consultation clicked');
-            // Add analytics tracking here
-        });
+        // Touch and swipe handling for mobile
+        let touchStartX = 0;
+        let touchStartY = 0;
 
-        // SEO and Performance optimizations
-        function preloadCriticalResources() {
-            const criticalUrls = [
-                'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
-                'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
-            ];
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', function(e) {
+            if (!touchStartX || !touchStartY) return;
             
-            criticalUrls.forEach(url => {
-                const link = document.createElement('link');
-                link.rel = 'preload';
-                link.as = 'style';
-                link.href = url;
-                document.head.appendChild(link);
-            });
-        }
+            const touchEndX = e.touches[0].clientX;
+            const touchEndY = e.touches[0].clientY;
+            
+            const diffX = touchStartX - touchEndX;
+            const diffY = touchStartY - touchEndY;
+            
+            // Horizontal swipe detection
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                if (Math.abs(diffX) > 50) {
+                    // Swipe detected - close mobile menu if open
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        closeMobileMenu();
+                    }
+                }
+            }
+        }, { passive: true });
 
-        // Initialize critical resources preloading
-        preloadCriticalResources();
-
-        // Enhanced popup show on scroll
+        // Enhanced popup show on scroll for mobile
         let hasShownPopup = false;
         window.addEventListener('scroll', function() {
-            if (!hasShownPopup && window.scrollY > 2000 && !localStorage.getItem('subscriberPopupShown')) {
+            if (!hasShownPopup && window.scrollY > 1500 && !localStorage.getItem('subscriberPopupShown')) {
                 document.getElementById('subscriberPopup').classList.add('active');
                 hasShownPopup = true;
                 localStorage.setItem('subscriberPopupShown', 'true');
             }
+        });
+
+        // Performance optimization - lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.style.backgroundImage = img.dataset.src;
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('[style*="background-image"]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Service Worker for offline capability (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful');
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+
+        // Enhanced Google Analytics tracking for mobile interactions
+        function trackMobileInteraction(action, label) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', action, {
+                    event_category: 'Mobile_Interaction',
+                    event_label: label
+                });
+            }
+        }
+
+        // Track mobile menu usage
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            trackMobileInteraction('mobile_menu_toggle', 'header');
+        });
+
+        // Track WhatsApp clicks
+        document.querySelector('.whatsapp-btn').addEventListener('click', function() {
+            trackMobileInteraction('whatsapp_click', 'consultation');
+        });
+
+        // Prevent zoom on iOS
+        document.addEventListener('touchstart', function(event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // Handle orientation changes
+        window.addEventListener('orientationchange', function() {
+            setTimeout(function() {
+                window.scrollTo(0, window.scrollY);
+            }, 500);
         });
 
         // Add structured data for better SEO
@@ -1898,11 +2119,11 @@
                 "@type": "Place",
                 "name": "Dubai, UAE"
             },
-            "priceRange": "$$",
+            "priceRange": "$",
             "openingHours": "Mo-Su 09:00-21:00"
         };
 
-        // Inject structured data
+        // Inject additional structured data
         const script = document.createElement('script');
         script.type = 'application/ld+json';
         script.text = JSON.stringify(structuredData);
