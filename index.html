@@ -1921,14 +1921,14 @@
             submitBtn.textContent = 'Subscribing...';
             
             const formData = new FormData(form);
-            const data = {};
-            formData.forEach((value, key) => {
-                if (key === 'phone') {
-                    data[key] = document.getElementById('countryCode').value + value;
-                } else {
-                    data[key] = value;
-                }
-            });
+          
+            const data = {
+                "Full Name": formData.get("name"),
+                "Email Address": formData.get("email"),
+                "Contact Number": document.getElementById("countryCode").value + formData.get("phone"),
+                "timestamp": new Date().toISOString(),
+                "source": "Dubai Real Estate Website"
+           };
             
             // Add timestamp and source
             data.timestamp = new Date().toISOString();
