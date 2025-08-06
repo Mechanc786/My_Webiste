@@ -84,19 +84,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Google Translate Script -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'ar,hi,ur,es,fr,de,it,pt,ru,zh,ja,ko,tr,fa,th,vi,ms,id,nl,sv,da,no,fi,pl,cs,sk,hu,ro,bg,hr,sr,sl,et,lv,lt,mt,ga,cy,is,mk',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
     <style>
         * {
             margin: 0;
@@ -124,32 +111,82 @@
             overflow-x: hidden;
         }
 
-        /* Google Translate Styles */
-        #google_translate_element {
+        /* Language Switcher Styles */
+        .language-switcher {
             position: fixed;
             top: 70px;
             right: 10px;
             z-index: 1001;
+        }
+
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .language-btn {
             background: white;
-            padding: 5px;
-            border-radius: 5px;
+            border: 2px solid var(--primary-color);
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--primary-color);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
 
-        .goog-te-banner-frame.skiptranslate {
-            display: none !important;
+        .language-btn:hover {
+            background: var(--primary-color);
+            color: white;
         }
 
-        .goog-te-gadget {
-            font-family: 'Inter', sans-serif !important;
-            font-size: 11px !important;
+        .language-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: white;
+            min-width: 140px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border: 1px solid var(--gray-100);
+            overflow: hidden;
+            margin-top: 5px;
         }
 
-        .goog-te-combo {
-            padding: 3px 5px !important;
-            border: 1px solid var(--primary-color) !important;
-            border-radius: 3px !important;
-            font-size: 11px !important;
+        .language-dropdown.active .language-dropdown-content {
+            display: block;
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            cursor: pointer;
+            font-size: 12px;
+            color: var(--text-dark);
+            transition: background 0.3s ease;
+            border-bottom: 1px solid var(--gray-50);
+        }
+
+        .language-option:last-child {
+            border-bottom: none;
+        }
+
+        .language-option:hover {
+            background: var(--gray-50);
+            color: var(--primary-color);
+        }
+
+        .language-option.active {
+            background: var(--primary-color);
+            color: white;
         }
 
         /* Loading Animation */
@@ -898,6 +935,7 @@
             border-radius: 10px;
             font-size: 0.9rem;
             transition: border-color 0.3s ease;
+            width: 100%;
         }
 
         .form-group input:focus,
@@ -909,15 +947,18 @@
         .phone-group {
             display: flex;
             gap: 0.5rem;
+            width: 100%;
         }
 
         .country-code {
-            flex: 0 0 100px;
+            flex: 0 0 90px;
             font-size: 0.8rem;
+            min-width: 90px;
         }
 
         .phone-number {
             flex: 1;
+            min-width: 0;
         }
 
         .submit-btn {
@@ -1068,6 +1109,11 @@
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .country-code {
+                flex: 0 0 100px;
+                min-width: 100px;
+            }
         }
 
         /* Desktop Responsive */
@@ -1134,7 +1180,7 @@
                 font-size: 1.5rem;
             }
 
-            #google_translate_element {
+            .language-switcher {
                 top: 80px;
                 right: 20px;
             }
@@ -1145,6 +1191,11 @@
 
             .popup-title {
                 font-size: 1.5rem;
+            }
+
+            .country-code {
+                flex: 0 0 110px;
+                min-width: 110px;
             }
         }
 
@@ -1244,8 +1295,58 @@
         <div class="spinner"></div>
     </div>
 
-    <!-- Google Translate Widget -->
-    <div id="google_translate_element"></div>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <div class="language-dropdown" id="languageDropdown">
+            <button class="language-btn" onclick="toggleLanguageDropdown()">
+                <span id="currentLangFlag">🇺🇸</span>
+                <span id="currentLangCode">EN</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="language-dropdown-content">
+                <div class="language-option active" onclick="changeLanguage('en', '🇺🇸', 'EN')">
+                    <span>🇺🇸</span>
+                    <span>English</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ar', '🇸🇦', 'AR')">
+                    <span>🇸🇦</span>
+                    <span>العربية</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('zh', '🇨🇳', 'ZH')">
+                    <span>🇨🇳</span>
+                    <span>中文</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ru', '🇷🇺', 'RU')">
+                    <span>🇷🇺</span>
+                    <span>Русский</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('es', '🇪🇸', 'ES')">
+                    <span>🇪🇸</span>
+                    <span>Español</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('fr', '🇫🇷', 'FR')">
+                    <span>🇫🇷</span>
+                    <span>Français</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('bn', '🇧🇩', 'BN')">
+                    <span>🇧🇩</span>
+                    <span>বাংলা</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('pt', '🇵🇹', 'PT')">
+                    <span>🇵🇹</span>
+                    <span>Português</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('hi', '🇮🇳', 'HI')">
+                    <span>🇮🇳</span>
+                    <span>हिन्दी</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ur', '🇵🇰', 'UR')">
+                    <span>🇵🇰</span>
+                    <span>اردو</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Subscriber Popup -->
     <div class="popup-overlay" id="subscriberPopup">
@@ -1722,6 +1823,93 @@
     </footer>
 
     <script>
+        // Language Switcher Functions
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageDropdown');
+            dropdown.classList.toggle('active');
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        }
+
+        function changeLanguage(langCode, flag, displayCode) {
+            // Update current language display
+            document.getElementById('currentLangFlag').textContent = flag;
+            document.getElementById('currentLangCode').textContent = displayCode;
+            
+            // Update active state
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            event.target.closest('.language-option').classList.add('active');
+            
+            // Close dropdown
+            document.getElementById('languageDropdown').classList.remove('active');
+            
+            // Store selected language
+            localStorage.setItem('selectedLanguage', JSON.stringify({
+                code: langCode,
+                flag: flag,
+                display: displayCode
+            }));
+            
+            // Here you would typically trigger translation
+            translatePage(langCode);
+        }
+
+        function translatePage(langCode) {
+            // Basic translation object (you can expand this)
+            const translations = {
+                'ar': {
+                    'Invest in Dubai Real Estate - Golden Visa & High ROI Properties': 'استثمر في العقارات في دبي - الفيزا الذهبية وعقارات عالية العائد',
+                    'Why Invest in Dubai Real Estate? Premium Property Investment Benefits': 'لماذا الاستثمار في عقارات دبي؟ فوائد الاستثمار العقاري المتميز'
+                },
+                'zh': {
+                    'Invest in Dubai Real Estate - Golden Visa & High ROI Properties': '投资迪拜房地产 - 黄金签证和高投资回报率物业',
+                    'Why Invest in Dubai Real Estate? Premium Property Investment Benefits': '为什么投资迪拜房地产？优质房地产投资收益'
+                },
+                'hi': {
+                    'Invest in Dubai Real Estate - Golden Visa & High ROI Properties': 'दुबई रियल एस्टेट में निवेश करें - गोल्डन वीज़ा और उच्च आरओआई संपत्तियां',
+                    'Why Invest in Dubai Real Estate? Premium Property Investment Benefits': 'दुबई रियल एस्टेट में निवेश क्यों करें? प्रीमियम संपत्ति निवेश लाभ'
+                }
+                // Add more translations as needed
+            };
+
+            // Simple translation implementation
+            if (translations[langCode]) {
+                Object.keys(translations[langCode]).forEach(key => {
+                    const elements = document.querySelectorAll('h1, h2, h3');
+                    elements.forEach(element => {
+                        if (element.textContent.includes(key)) {
+                            element.textContent = element.textContent.replace(key, translations[langCode][key]);
+                        }
+                    });
+                });
+            }
+        }
+
+        // Load saved language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('selectedLanguage');
+            if (savedLang) {
+                const lang = JSON.parse(savedLang);
+                document.getElementById('currentLangFlag').textContent = lang.flag;
+                document.getElementById('currentLangCode').textContent = lang.display;
+                
+                // Update active state
+                document.querySelectorAll('.language-option').forEach(option => {
+                    option.classList.remove('active');
+                    if (option.onclick.toString().includes(lang.code)) {
+                        option.classList.add('active');
+                    }
+                });
+            }
+        });
+
         // Enhanced subscription form with SheetDB integration
         const form = document.getElementById('subscribe-form');
         const msg = document.getElementById('response-msg');
