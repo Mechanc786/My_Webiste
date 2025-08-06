@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head><!-- Google tag (gtag.js) -->
@@ -1910,52 +1911,20 @@
             }
         });
 
-
-    <!-- 🔹 POPUP BOX -->
-    <div id="popup" style="display: none; position: fixed; top: 15%; left: 50%; transform: translateX(-50%); background: #fff; padding: 25px; border: 2px solid #ccc; border-radius: 8px; z-index: 9999; max-width: 400px; box-shadow: 0 0 15px rgba(0,0,0,0.3);">
-      <h3>Subscribe for Dubai Real Estate Updates</h3>
-      <form id="subscribe-form">
-        <label>Full Name:</label>
-        <input type="text" name="name" required>
-
-        <label>Email Address:</label>
-        <input type="email" name="email" required>
-
-        <label>Phone Number:</label>
-        <div style="display: flex;">
-          <select id="countryCode" required style="width: 30%;">
-            <option value="+971">+971</option>
-            <option value="+91">+91</option>
-          </select>
-          <input type="text" name="phone" required style="flex: 1; margin-left: 5px;">
-        </div>
-
-        <button type="submit" id="submitBtn">Subscribe Now</button>
-        <p id="response-msg" style="margin-top: 10px;"></p>
-      </form>
-
-      <button onclick="closePopup()" style="margin-top: 10px;">❌ Close</button>
-    </div>
-
-    <!-- 🔹 POPUP SCRIPT -->
-    <script>
-      function openPopup() {
-         document.getElementById("popup").style.display = "block";
-       }
-
-       function closePopup() {
-         document.getElementById("popup").style.display = "none";
-       }
-
-       window.onload = function () {
-         openPopup(); // Show popup every time page loads
-       };
-        
-       // Enhanced subscription form with SheetDB integration
+        // Enhanced subscription form with SheetDB integration
         const form = document.getElementById('subscribe-form');
         const msg = document.getElementById('response-msg');
         const submitBtn = document.getElementById('submitBtn');
-      
+
+        // ✅ Show popup every time page is loaded
+        window.onload = function () {
+          document.getElementById("popup").style.display = "block";
+        }
+
+        function closePopup() {
+          document.getElementById("popup").style.display = "none";
+        }
+
         // ✅ Form submit function
         form.addEventListener('submit', function (e) {
             e.preventDefault();
