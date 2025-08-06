@@ -1915,6 +1915,20 @@
         const msg = document.getElementById('response-msg');
         const submitBtn = document.getElementById('submitBtn');
 
+        // ✅ Show popup every time page is loaded
+        window.onload = function () {
+          openPopup();
+        };
+
+        function openPopup() {
+          document.getElementById("popup").style.display = "block";
+        }
+
+        function closePopup() {
+          document.getElementById("popup").style.display = "none";
+        }
+
+        // ✅ Form submit function
         form.addEventListener('submit', function (e) {
             e.preventDefault();
             submitBtn.disabled = true;
