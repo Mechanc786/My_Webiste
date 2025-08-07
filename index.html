@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head><!-- Google tag (gtag.js) -->
@@ -1851,14 +1850,14 @@
             // Close dropdown
             document.getElementById('languageDropdown').classList.remove('active');
             
-            // Store selected language
-            localStorage.setItem('selectedLanguage', JSON.stringify({
+            // Store selected language (but don't use it to prevent popup from showing)
+            sessionStorage.setItem('selectedLanguage', JSON.stringify({
                 code: langCode,
                 flag: flag,
                 display: displayCode
             }));
             
-            // Here you would typically trigger translation
+            // Trigger translation
             translatePage(langCode);
         }
 
@@ -1895,7 +1894,7 @@
 
         // Load saved language on page load
         document.addEventListener('DOMContentLoaded', function() {
-            const savedLang = localStorage.getItem('selectedLanguage');
+            const savedLang = sessionStorage.getItem('selectedLanguage');
             if (savedLang) {
                 const lang = JSON.parse(savedLang);
                 document.getElementById('currentLangFlag').textContent = lang.flag;
@@ -1916,13 +1915,16 @@
         const msg = document.getElementById('response-msg');
         const submitBtn = document.getElementById('submitBtn');
 
-        // ✅ Show popup every time page is loaded
-        window.onload = function () {
-          document.getElementById("popup").style.display = "block";
-        }
+        // ✅ FIXED: Show popup every time page loads - removed localStorage check
+        window.addEventListener('load', function () {
+            // Show popup after 3 seconds every time page loads
+            setTimeout(() => {
+                document.getElementById('subscriberPopup').classList.add('active');
+            }, 3000);
+        });
 
         function closePopup() {
-          document.getElementById("popup").style.display = "none";
+            document.getElementById('subscriberPopup').classList.remove('active');
         }
 
         // ✅ Form submit function
@@ -1940,10 +1942,6 @@
                 "timestamp": new Date().toISOString(),
                 "source": "Dubai Real Estate Website"
            };
-            
-            // Add timestamp and source
-            data.timestamp = new Date().toISOString();
-            data.source = 'Dubai Real Estate Website';
             
             fetch('https://sheetdb.io/api/v1/9ghcdx2pecwl8', {
                 method: 'POST',
@@ -1997,19 +1995,6 @@
             mobileMenu.classList.remove('active');
             toggleBtn.classList.remove('active');
             document.body.style.overflow = '';
-        }
-
-        // Show subscriber popup after 10 seconds
-        setTimeout(() => {
-            if (!localStorage.getItem('subscriberPopupShown')) {
-                document.getElementById('subscriberPopup').classList.add('active');
-                localStorage.setItem('subscriberPopupShown', 'true');
-            }
-        }, 10000);
-
-        // Close popup function
-        function closePopup() {
-            document.getElementById('subscriberPopup').classList.remove('active');
         }
 
         // Close popup when clicking outside
@@ -2214,16 +2199,6 @@
                 }
             }
         }, { passive: true });
-
-        // Enhanced popup show on scroll for mobile
-        let hasShownPopup = false;
-        window.addEventListener('scroll', function() {
-            if (!hasShownPopup && window.scrollY > 1500 && !localStorage.getItem('subscriberPopupShown')) {
-                document.getElementById('subscriberPopup').classList.add('active');
-                hasShownPopup = true;
-                localStorage.setItem('subscriberPopupShown', 'true');
-            }
-        });
 
         // Performance optimization - lazy load images
         if ('IntersectionObserver' in window) {
